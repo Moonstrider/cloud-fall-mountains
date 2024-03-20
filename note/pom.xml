@@ -39,7 +39,51 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}-${project.custom.version}</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>${build-helper-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>custom-version</id>
+						<goals>
+							<goal>regex-property</goal>
+						</goals>
+						<configuration>
+							<name>project.custom.version</name>
+							<value>${project.version}</value>
+							<regex>\.</regex>
+							<replacement>-</replacement>
+							<toLowerCase>true</toLowerCase>
+							<failIfNoMatch>false</failIfNoMatch>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${maven-antrun-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>regex-replace-echo</id>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo>******** Displaying value of property ********</echo>
+								<echo>${project.custom.version}</echo>
+								<echo>${project.name}</echo>
+								<echo>${project.artifactId}</echo>
+								<echo>${project.version}</echo>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
