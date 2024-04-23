@@ -15,12 +15,12 @@ public class CacheController {
 
     @GetMapping("/get")
     public String getCache() {
-        return redisTemplate.opsForValue().get("a");
+        return redisTemplate.opsForValue().get("b");
     }
 
     @GetMapping("/set")
     public String setCache() {
-        redisTemplate.opsForValue().set("a", "aaa");
+        redisTemplate.opsForValue().set("b", "bbb");
         return "ok";
     }
 }
