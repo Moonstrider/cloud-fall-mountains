@@ -1,6 +1,6 @@
-package com.cloudfall.mountains.note.controller;
+package com.cloud.fall.mountains.note.controller;
 
-import com.cloudfall.mountains.note.dto.NoteListDTO;
+import com.cloud.fall.mountains.note.dto.NoteListDTO;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

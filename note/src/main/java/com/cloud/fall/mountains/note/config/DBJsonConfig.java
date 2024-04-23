@@ -1,6 +1,6 @@
-package com.cloudfall.mountains.note.config;
+package com.cloud.fall.mountains.note.config;
 
-import com.cloudfall.mountains.note.dto.NoteListDTO;
+import com.cloud.fall.mountains.note.dto.NoteListDTO;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;

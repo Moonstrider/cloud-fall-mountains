@@ -1,4 +1,4 @@
-package com.cloudfall.mountains.note;
+package com.cloud.fall.mountains.note;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
