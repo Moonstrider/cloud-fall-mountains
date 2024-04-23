@@ -1,6 +1,6 @@
-package com.cloudfall.mountains.notebook.repository;
+package com.cloud.fall.mountains.notebook.repository;
 
-import com.cloudfall.mountains.notebook.entity.cassandra.Student;
+import com.cloud.fall.mountains.notebook.entity.cassandra.Student;
 import org.springframework.data.cassandra.repository.AllowFiltering;
 import org.springframework.data.cassandra.repository.ReactiveCassandraRepository;
 import reactor.core.publisher.Flux;

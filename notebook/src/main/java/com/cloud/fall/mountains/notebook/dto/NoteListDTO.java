@@ -1,4 +1,4 @@
-package com.cloudfall.mountains.notebook.dto;
+package com.cloud.fall.mountains.notebook.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

@@ -1,7 +1,7 @@
-package com.cloudfall.mountains.notebook.service;
+package com.cloud.fall.mountains.notebook.service;
 
-import com.cloudfall.mountains.notebook.entity.cassandra.Student;
-import com.cloudfall.mountains.notebook.repository.StudentRepository;
+import com.cloud.fall.mountains.notebook.entity.cassandra.Student;
+import com.cloud.fall.mountains.notebook.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

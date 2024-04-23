@@ -1,4 +1,4 @@
-package com.cloudfall.mountains.notebook.controller;
+package com.cloud.fall.mountains.notebook.controller;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
-package com.cloudfall.mountains.notebook.controller;
+package com.cloud.fall.mountains.notebook.controller;
 
-import com.cloudfall.mountains.notebook.entity.cassandra.Student;
-import com.cloudfall.mountains.notebook.service.StudentService;
+import com.cloud.fall.mountains.notebook.service.StudentService;
+import com.cloud.fall.mountains.notebook.entity.cassandra.Student;
 import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

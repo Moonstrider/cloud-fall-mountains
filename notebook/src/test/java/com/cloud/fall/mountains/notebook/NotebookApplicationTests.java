@@ -1,4 +1,4 @@
-package com.cloudfall.mountains.notebook;
+package com.cloud.fall.mountains.notebook;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

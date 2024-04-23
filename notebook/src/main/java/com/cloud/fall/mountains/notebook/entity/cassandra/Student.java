@@ -1,4 +1,4 @@
-package com.cloudfall.mountains.notebook.entity.cassandra;
+package com.cloud.fall.mountains.notebook.entity.cassandra;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

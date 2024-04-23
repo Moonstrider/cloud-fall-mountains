@@ -1,4 +1,4 @@
-package com.cloudfall.mountains.notebook;
+package com.cloud.fall.mountains.notebook;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
