@@ -1,34 +1,35 @@
-import {GitHubBanner, Refine, WelcomePage} from "@refinedev/core";
-import {DevtoolsPanel, DevtoolsProvider} from "@refinedev/devtools";
+import {Authenticated, Refine} from "@refinedev/core";
+import {DevtoolsProvider} from "@refinedev/devtools";
 import {RefineKbar, RefineKbarProvider} from "@refinedev/kbar";
 
 import {useNotificationProvider} from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 
-import dataProvider, {
-    GraphQLClient,
-    liveProvider,
-} from "@refinedev/nestjs-query";
+import {authProvider, dataProvider, liveProvider} from "./providers";
 import routerBindings, {
+    CatchAllNavigate,
     DocumentTitleHandler,
     UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
 import {App as AntdApp} from "antd";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Outlet, Route, Routes} from "react-router-dom";
+import {ForgotPassword, Home, Login, Register} from "./pages";
+import React from "react";
+import Layout from "./components/layout";
 
 function App() {
     return (
         <BrowserRouter>
-            <GitHubBanner/>
+            {/*<GitHubBanner/>*/}
             <RefineKbarProvider>
                 <AntdApp>
                     <DevtoolsProvider>
                         <Refine
-                            // dataProvider={dataProvider(gqlClient)}
-                            // liveProvider={liveProvider(wsClient)}
+                            dataProvider={dataProvider}
+                            liveProvider={liveProvider}
                             notificationProvider={useNotificationProvider}
                             routerProvider={routerBindings}
-                            // authProvider={}
+                            authProvider={authProvider}
                             options={{
                                 syncWithLocation: true,
                                 warnWhenUnsavedChanges: true,
@@ -38,13 +39,32 @@ function App() {
                             }}
                         >
                             <Routes>
-                                <Route index element={<WelcomePage/>}/>
+                                <Route path="/register" element={<Register/>}/>
+                                <Route path="/login" element={<Login/>}/>
+                                <Route path="/forgot-password" element={<ForgotPassword/>}/>
+                                <Route path="/" element={
+                                    // <Authenticated
+                                    //     key="authenticated-layout"
+                                    //     fallback={<CatchAllNavigate to="/"/>}
+                                    //     v3LegacyAuthProviderCompatible
+                                    // >
+                                        <Layout>
+                                            {/*this Outlet is a special component that
+                                                renders the child route of the current route
+                                                in this case the Home page is the child
+                                                of the Authenticated route*/}
+                                            <Outlet/>
+                                        </Layout>
+                                    // </Authenticated>
+                                }>
+                                    <Route index element={<Home/>}/>
+                                </Route>
                             </Routes>
                             <RefineKbar/>
                             <UnsavedChangesNotifier/>
                             <DocumentTitleHandler/>
                         </Refine>
-                        <DevtoolsPanel/>
+                        {/*<DevtoolsPanel/>*/}
                     </DevtoolsProvider>
                 </AntdApp>
             </RefineKbarProvider>

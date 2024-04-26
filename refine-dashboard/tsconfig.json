@@ -14,7 +14,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+//  with this you don't need ./../../../src anymore
+    "paths": {
+      "@/*": ["./*"]
+    },
   },
   "include": ["src", "vite.config.ts"],
   "references": [
