@@ -1,6 +1,8 @@
 package com.cloud.fall.mountains.notebook.controller;
 
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,12 @@ public class MessageController {
 
     @PostMapping("/publish")
     public void publish(@RequestParam("message") String message) {
+        kafkaTemplate.send("robtest", message);
+        kafkaTemplate.send("vcc.user.internal.confirmation.event.dev", "rob", message);
+    }
+
+    @GetMapping("/p/{m}")
+    public void p(@PathVariable("m") String message) {
         kafkaTemplate.send("robtest", message);
         kafkaTemplate.send("vcc.user.internal.confirmation.event.dev", "rob", message);
     }
