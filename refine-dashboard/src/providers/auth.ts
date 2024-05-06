@@ -3,7 +3,7 @@ import {API_URL, dataProvider} from "./data";
 
 // for demo purposes, we are using a hardcoded email and password for credentials
 export const authCredentials = {
-    email: "micheal.scott@dundermifflin.com",
+    email: "demo@refine.dev",
     password: "demodemo"
 }
 
