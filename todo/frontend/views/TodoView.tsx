@@ -34,7 +34,7 @@ export function TodoView() {
 
     return (
         <div className="p-m">
-            <h1>Hilla cool todo!</h1>
+            <h1>Hilla cool todo! Java + react ts</h1>
 
             <div className="flex gap-s">
                 <TextField value={task} onChange={e => setTask(e.target.value)}/>
