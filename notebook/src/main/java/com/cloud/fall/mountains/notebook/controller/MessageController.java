@@ -27,6 +27,6 @@ public class MessageController {
     @GetMapping("/p/{m}")
     public void p(@PathVariable("m") String message) {
         kafkaTemplate.send("robtest", message);
-        kafkaTemplate.send("vcc.user.internal.confirmation.event.dev", "rob", message);
+//        kafkaTemplate.send("vcc.user.internal.confirmation.event.dev", "rob", message);
     }
 }
