@@ -21,7 +21,7 @@ public class MessageController {
     @PostMapping("/publish")
     public void publish(@RequestParam("message") String message) {
         kafkaTemplate.send("robtest", message);
-        kafkaTemplate.send("vcc.user.internal.confirmation.event.dev", "rob", message);
+//        kafkaTemplate.send("vcc.user.internal.confirmation.event.dev", "rob", message);
     }
 
     @GetMapping("/p/{m}")

@@ -4,6 +4,10 @@
 mkdir react-hooks-ts-admin
 cd react-hooks-ts-admin
 npm create vite .
+change react to 16.8.4
+npm install antd
+npm install dva@2.6.0-beta.20
+npm install axios
 ```
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
