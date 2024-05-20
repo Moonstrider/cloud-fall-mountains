@@ -31,5 +31,11 @@ export default {
 
 ```
 npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init 
+npx tailwindcss init
+```
+```
+npm i lucide-react 
+```
+```
+npm i class-variance-authority tailwind-merge
 ```

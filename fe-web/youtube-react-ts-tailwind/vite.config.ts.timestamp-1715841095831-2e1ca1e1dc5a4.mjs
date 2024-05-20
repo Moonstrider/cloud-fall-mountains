@@ -1,0 +1,20 @@
+// vite.config.ts
+import { defineConfig } from "file:///Users/xzhu54/james/cloud-fall-mountains/fe-web/youtube-react-ts-tailwind/node_modules/vite/dist/node/index.js";
+import react from "file:///Users/xzhu54/james/cloud-fall-mountains/fe-web/youtube-react-ts-tailwind/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import tailwindcss from "file:///Users/xzhu54/james/cloud-fall-mountains/fe-web/youtube-react-ts-tailwind/node_modules/tailwindcss/lib/index.js";
+import autoprefixer from "file:///Users/xzhu54/james/cloud-fall-mountains/fe-web/youtube-react-ts-tailwind/node_modules/autoprefixer/lib/autoprefixer.js";
+var vite_config_default = defineConfig({
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss,
+        autoprefixer
+      ]
+    }
+  }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCIvVXNlcnMveHpodTU0L2phbWVzL2Nsb3VkLWZhbGwtbW91bnRhaW5zL2ZlLXdlYi95b3V0dWJlLXJlYWN0LXRzLXRhaWx3aW5kXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCIvVXNlcnMveHpodTU0L2phbWVzL2Nsb3VkLWZhbGwtbW91bnRhaW5zL2ZlLXdlYi95b3V0dWJlLXJlYWN0LXRzLXRhaWx3aW5kL3ZpdGUuY29uZmlnLnRzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9Vc2Vycy94emh1NTQvamFtZXMvY2xvdWQtZmFsbC1tb3VudGFpbnMvZmUtd2ViL3lvdXR1YmUtcmVhY3QtdHMtdGFpbHdpbmQvdml0ZS5jb25maWcudHNcIjtpbXBvcnQgeyBkZWZpbmVDb25maWcgfSBmcm9tICd2aXRlJ1xuaW1wb3J0IHJlYWN0IGZyb20gJ0B2aXRlanMvcGx1Z2luLXJlYWN0J1xuXG4vLyBodHRwczovL3ZpdGVqcy5kZXYvY29uZmlnL1xuaW1wb3J0IHRhaWx3aW5kY3NzIGZyb20gXCJ0YWlsd2luZGNzc1wiO1xuaW1wb3J0IGF1dG9wcmVmaXhlciBmcm9tIFwiYXV0b3ByZWZpeGVyXCI7XG5cbmV4cG9ydCBkZWZhdWx0IGRlZmluZUNvbmZpZyh7XG4gIHBsdWdpbnM6IFtyZWFjdCgpXSxcbiAgY3NzOiB7XG4gICAgcG9zdGNzczp7XG4gICAgICBwbHVnaW5zOltcbiAgICAgICAgICB0YWlsd2luZGNzcyxcbiAgICAgICAgICBhdXRvcHJlZml4ZXJcbiAgICAgIF1cbiAgICB9XG4gIH1cbn0pXG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQTZZLFNBQVMsb0JBQW9CO0FBQzFhLE9BQU8sV0FBVztBQUdsQixPQUFPLGlCQUFpQjtBQUN4QixPQUFPLGtCQUFrQjtBQUV6QixJQUFPLHNCQUFRLGFBQWE7QUFBQSxFQUMxQixTQUFTLENBQUMsTUFBTSxDQUFDO0FBQUEsRUFDakIsS0FBSztBQUFBLElBQ0gsU0FBUTtBQUFBLE1BQ04sU0FBUTtBQUFBLFFBQ0o7QUFBQSxRQUNBO0FBQUEsTUFDSjtBQUFBLElBQ0Y7QUFBQSxFQUNGO0FBQ0YsQ0FBQzsiLAogICJuYW1lcyI6IFtdCn0K
