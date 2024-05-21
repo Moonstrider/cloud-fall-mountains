@@ -20,6 +20,15 @@ const buttonStyles = cva(
                     "items-center",
                     "justify-center",
                     "p-2.5"
+                ],
+                search:[
+                    "py-2",
+                    "px-4",
+                    "rounded-r-full",
+                    "border-secondary-border",
+                    "border",
+                    "border-l-0",
+                    "flex-shrink-0"
                 ]
             }
         },
