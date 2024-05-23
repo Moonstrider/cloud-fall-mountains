@@ -3,6 +3,7 @@ import {CategoryPills} from "./components/CategoryPills.tsx";
 import {categories, videos} from "./data/home.ts";
 import {useState} from "react";
 import {VideoGridItem} from "./components/VideoGridItem.tsx";
+import {Sidebar} from "./layouts/Sidebar.tsx";
 
 export default function App() {
 
@@ -14,7 +15,7 @@ export default function App() {
             <div className="grid grid-cols-[auto, 1fr] flex-grow-1 overflow-auto">
                 {/*<div className="flex">*/}
                 {/* the content in this div can scroll independently */}
-                <div>Sidebar</div>
+                <Sidebar/>
 
                 <div className="overflow-x-hidden px-8 pb-4">
                     {/*search history bar*/}

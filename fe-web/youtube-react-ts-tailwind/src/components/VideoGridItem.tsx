@@ -51,7 +51,6 @@ export function VideoGridItem(
              onMouseEnter={() => setIsVideoPlaying(true)}
              onMouseLeave={() => setIsVideoPlaying(false)}
         >
-            {/*<video src="/src/data/123.mp4"/>*/}
             <a href={`/watch?v=${id}`} className="relative aspect-video">
                 <img alt="youtube" src={thumbnailUrl} className="block w-full h-full object-cover rounded-xl"/>
                 <div className="absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-.5 rounded">
@@ -63,7 +62,7 @@ export function VideoGridItem(
                        src={videoUrl}
                        className={`block h-full object-cover 
                        absolute inset-0 transition-opacity duration-200 
-                       ${isVideoPlaying ? "opacity-100" : "opacity-0"}`}
+                       ${isVideoPlaying ? "opacity-100 delay-200" : "opacity-0"}`}
                 />
             </a>
             <div className="flex gap-2">
