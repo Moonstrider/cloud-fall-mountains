@@ -157,4 +157,102 @@ export const videos = [
         thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
         videoUrl: "/src/data/123.mp4"
     },
+    {
+        id: "11",
+        title: "Story and Lore of Westeros",
+        channel: {
+            name: "Robb Stark",
+            id: "WebDevSimplified",
+            profileUrl: "https://cdn.pixabay.com/photo/2019/08/23/07/05/dragon-4425077_1280.jpg"
+        },
+        views: 12345,
+        postedAt: new Date("2024-06-23"),
+        duration: 3661,
+        thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
+        videoUrl: "/src/data/123.mp4"
+    },
+    {
+        id: "12",
+        title: "Story and Lore of Westeros",
+        channel: {
+            name: "Robb Stark",
+            id: "WebDevSimplified",
+            profileUrl: "https://cdn.pixabay.com/photo/2019/08/23/07/05/dragon-4425077_1280.jpg"
+        },
+        views: 12345,
+        postedAt: new Date("2024-06-23"),
+        duration: 3661,
+        thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
+        videoUrl: "/src/data/123.mp4"
+    },
+    {
+        id: "13",
+        title: "Story and Lore of Westeros",
+        channel: {
+            name: "Robb Stark",
+            id: "WebDevSimplified",
+            profileUrl: "https://cdn.pixabay.com/photo/2019/08/23/07/05/dragon-4425077_1280.jpg"
+        },
+        views: 12345,
+        postedAt: new Date("2024-06-23"),
+        duration: 3661,
+        thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
+        videoUrl: "/src/data/123.mp4"
+    },
+    {
+        id: "14",
+        title: "Story and Lore of Westeros",
+        channel: {
+            name: "Robb Stark",
+            id: "WebDevSimplified",
+            profileUrl: "https://cdn.pixabay.com/photo/2019/08/23/07/05/dragon-4425077_1280.jpg"
+        },
+        views: 12345,
+        postedAt: new Date("2024-06-23"),
+        duration: 3661,
+        thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
+        videoUrl: "/src/data/123.mp4"
+    },
+    {
+        id: "15",
+        title: "Story and Lore of Westeros",
+        channel: {
+            name: "Robb Stark",
+            id: "WebDevSimplified",
+            profileUrl: "https://cdn.pixabay.com/photo/2019/08/23/07/05/dragon-4425077_1280.jpg"
+        },
+        views: 12345,
+        postedAt: new Date("2024-06-23"),
+        duration: 3661,
+        thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
+        videoUrl: "/src/data/123.mp4"
+    },
+    {
+        id: "16",
+        title: "Story and Lore of Westeros",
+        channel: {
+            name: "Robb Stark",
+            id: "WebDevSimplified",
+            profileUrl: "https://cdn.pixabay.com/photo/2019/08/23/07/05/dragon-4425077_1280.jpg"
+        },
+        views: 12345,
+        postedAt: new Date("2024-06-23"),
+        duration: 3661,
+        thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
+        videoUrl: "/src/data/123.mp4"
+    },
+    {
+        id: "17",
+        title: "Story and Lore of Westeros",
+        channel: {
+            name: "Robb Stark",
+            id: "WebDevSimplified",
+            profileUrl: "https://cdn.pixabay.com/photo/2019/08/23/07/05/dragon-4425077_1280.jpg"
+        },
+        views: 12345,
+        postedAt: new Date("2024-06-23"),
+        duration: 3661,
+        thumbnailUrl: "https://cdn.pixabay.com/photo/2019/05/05/15/05/game-of-thrones-4180794_960_720.jpg",
+        videoUrl: "/src/data/123.mp4"
+    }
 ]
