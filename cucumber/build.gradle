@@ -1,0 +1,30 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.mytechathon.auto.test'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+apply from: 'dependencies.gradle'
