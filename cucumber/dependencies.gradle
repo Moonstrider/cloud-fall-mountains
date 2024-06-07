@@ -5,6 +5,10 @@ buildscript {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'io.cucumber:cucumber-java:7.18.0'
+    implementation 'io.cucumber:cucumber-testng:7.18.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.21.0'
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
