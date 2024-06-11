@@ -1,12 +1,12 @@
 package com.cloud.fall.mountains.notebook.compare;
 
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static com.cloud.fall.mountains.notebook.compare.CompareFolder.diffBase;
-import static com.cloud.fall.mountains.notebook.compare.CompareFolder.diffOverlays;
+import static com.cloud.fall.mountains.notebook.compare.CompareFolder.diff;
 
 public class GitopsCompare {
 
@@ -155,7 +155,8 @@ public class GitopsCompare {
     };
     public static Path[] app_internet_volvoid_account_api_overlays_qa = {
             Path.of("/Users/xzhu54/work/global/lab/dragonite-gitops/app/internet/volvoid/account-api/overlays/cn.c3.qa"),
-            Path.of("/Users/xzhu54/work/global/lab/identity-access-management-gitops/app/internet/volvoid/account-api/overlays/qa.volvoc3.cn")
+//            Path.of("/Users/xzhu54/work/global/lab/identity-access-management-gitops/app/internet/volvoid/account-api/overlays/qa.volvoc3.cn")
+            Path.of("/Users/xzhu54/work/global/lab/identity-access-management-gitops/app/internet/volvoid/account-api/overlays/eu.qa.volvoc3.com")
     };
 
     /**
@@ -209,88 +210,83 @@ public class GitopsCompare {
 
         Map<String, Path[]> map = new LinkedHashMap<>();
         //app_corporate_user_mup_base
-        map.put("app_corporate_user_mup_base",app_corporate_user_mup_base);
+        map.put("app_corporate_user_mup_base", app_corporate_user_mup_base);
         //app_corporate_user_mup_overlays_qa
-        map.put("app_corporate_user_mup_overlays_qa",app_corporate_user_mup_overlays_qa);
+        map.put("app_corporate_user_mup_overlays_qa", app_corporate_user_mup_overlays_qa);
         //app_internal_data_migration_ping_datasync_base
-        map.put("app_internal_data_migration_ping_datasync_base",app_internal_data_migration_ping_datasync_base);
+        map.put("app_internal_data_migration_ping_datasync_base", app_internal_data_migration_ping_datasync_base);
         //app_internal_data_migration_ping_datasync_overlays_qa
-        map.put("app_internal_data_migration_ping_datasync_overlays_qa",app_internal_data_migration_ping_datasync_overlays_qa);
+        map.put("app_internal_data_migration_ping_datasync_overlays_qa", app_internal_data_migration_ping_datasync_overlays_qa);
         //app_internal_pd_user_admin_tool_base
-        map.put("app_internal_pd_user_admin_tool_base",app_internal_pd_user_admin_tool_base);
+        map.put("app_internal_pd_user_admin_tool_base", app_internal_pd_user_admin_tool_base);
         //app_internal_pd_user_admin_tool_overlays_qa
-        map.put("app_internal_pd_user_admin_tool_overlays_qa",app_internal_pd_user_admin_tool_overlays_qa);
+        map.put("app_internal_pd_user_admin_tool_overlays_qa", app_internal_pd_user_admin_tool_overlays_qa);
         //app_internal_pd_user_admin_tool_web_base
-        map.put("app_internal_pd_user_admin_tool_web_base",app_internal_pd_user_admin_tool_web_base);
+        map.put("app_internal_pd_user_admin_tool_web_base", app_internal_pd_user_admin_tool_web_base);
         //app_internal_pd_user_admin_tool_web_overlays_qa
-        map.put("app_internal_pd_user_admin_tool_web_overlays_qa",app_internal_pd_user_admin_tool_web_overlays_qa);
+        map.put("app_internal_pd_user_admin_tool_web_overlays_qa", app_internal_pd_user_admin_tool_web_overlays_qa);
         //app_internal_user_user_base
-        map.put("app_internal_user_user_base",app_internal_user_user_base);
+        map.put("app_internal_user_user_base", app_internal_user_user_base);
         //app_internal_user_user_overlays_qa
-        map.put("app_internal_user_user_overlays_qa",app_internal_user_user_overlays_qa);
+        map.put("app_internal_user_user_overlays_qa", app_internal_user_user_overlays_qa);
         //app_internal_user_message_dispatcher_base
-        map.put("app_internal_user_message_dispatcher_base",app_internal_user_message_dispatcher_base);
+        map.put("app_internal_user_message_dispatcher_base", app_internal_user_message_dispatcher_base);
         //app_internal_user_message_dispatcher_overlays_qa
-        map.put("app_internal_user_message_dispatcher_overlays_qa",app_internal_user_message_dispatcher_overlays_qa);
+        map.put("app_internal_user_message_dispatcher_overlays_qa", app_internal_user_message_dispatcher_overlays_qa);
         //app_internal_volvoid_adaptor_base
-        map.put("app_internal_volvoid_adaptor_base",app_internal_volvoid_adaptor_base);
+        map.put("app_internal_volvoid_adaptor_base", app_internal_volvoid_adaptor_base);
         //app_internal_volvoid_adaptor_overlays_qa
-        map.put("app_internal_volvoid_adaptor_overlays_qa",app_internal_volvoid_adaptor_overlays_qa);
+        map.put("app_internal_volvoid_adaptor_overlays_qa", app_internal_volvoid_adaptor_overlays_qa);
         //app_internal_volvoid_event_bridge_base
-        map.put("app_internal_volvoid_event_bridge_base",app_internal_volvoid_event_bridge_base);
+        map.put("app_internal_volvoid_event_bridge_base", app_internal_volvoid_event_bridge_base);
         //app_internal_volvoid_event_bridge_overlays_qa
-        map.put("app_internal_volvoid_event_bridge_overlays_qa",app_internal_volvoid_event_bridge_overlays_qa);
+        map.put("app_internal_volvoid_event_bridge_overlays_qa", app_internal_volvoid_event_bridge_overlays_qa);
         //app_internet_infra_olympus_olympus_apollo_base
-        map.put("app_internet_infra_olympus_olympus_apollo_base",app_internet_infra_olympus_olympus_apollo_base);
+        map.put("app_internet_infra_olympus_olympus_apollo_base", app_internet_infra_olympus_olympus_apollo_base);
         //app_internet_infra_olympus_olympus_apollo_overlays_qa
-        map.put("app_internet_infra_olympus_olympus_apollo_overlays_qa",app_internet_infra_olympus_olympus_apollo_overlays_qa);
+        map.put("app_internet_infra_olympus_olympus_apollo_overlays_qa", app_internet_infra_olympus_olympus_apollo_overlays_qa);
         //app_internet_infra_olympus_ping_dataconsole_base
-        map.put("app_internet_infra_olympus_ping_dataconsole_base",app_internet_infra_olympus_ping_dataconsole_base);
+        map.put("app_internet_infra_olympus_ping_dataconsole_base", app_internet_infra_olympus_ping_dataconsole_base);
         //app_internet_infra_olympus_ping_dataconsole_overlays_qa
-        map.put("app_internet_infra_olympus_ping_dataconsole_overlays_qa",app_internet_infra_olympus_ping_dataconsole_overlays_qa);
+        map.put("app_internet_infra_olympus_ping_dataconsole_overlays_qa", app_internet_infra_olympus_ping_dataconsole_overlays_qa);
         //app_internet_infra_olympus_ping_datasync_base
-        map.put("app_internet_infra_olympus_ping_datasync_base",app_internet_infra_olympus_ping_datasync_base);
+        map.put("app_internet_infra_olympus_ping_datasync_base", app_internet_infra_olympus_ping_datasync_base);
         //app_internet_infra_olympus_ping_datasync_overlays_qa
-        map.put("app_internet_infra_olympus_ping_datasync_overlays_qa",app_internet_infra_olympus_ping_datasync_overlays_qa);
+        map.put("app_internet_infra_olympus_ping_datasync_overlays_qa", app_internet_infra_olympus_ping_datasync_overlays_qa);
         //app_internet_volvoid_account_api_base
-        map.put("app_internet_volvoid_account_api_base",app_internet_volvoid_account_api_base);
+        map.put("app_internet_volvoid_account_api_base", app_internet_volvoid_account_api_base);
         //app_internet_volvoid_account_api_overlays_qa
-        map.put("app_internet_volvoid_account_api_overlays_qa",app_internet_volvoid_account_api_overlays_qa);
+        map.put("app_internet_volvoid_account_api_overlays_qa", app_internet_volvoid_account_api_overlays_qa);
         //app_internet_volvoid_volvoid_portal_external_base
-        map.put("app_internet_volvoid_volvoid_portal_external_base",app_internet_volvoid_volvoid_portal_external_base);
+        map.put("app_internet_volvoid_volvoid_portal_external_base", app_internet_volvoid_volvoid_portal_external_base);
         //app_internet_volvoid_volvoid_portal_external_components
-        map.put("app_internet_volvoid_volvoid_portal_external_components",app_internet_volvoid_volvoid_portal_external_components);
+        map.put("app_internet_volvoid_volvoid_portal_external_components", app_internet_volvoid_volvoid_portal_external_components);
         //app_internet_volvoid_volvoid_portal_external_overlays_qa
-        map.put("app_internet_volvoid_volvoid_portal_external_overlays_qa",app_internet_volvoid_volvoid_portal_external_overlays_qa);
+        map.put("app_internet_volvoid_volvoid_portal_external_overlays_qa", app_internet_volvoid_volvoid_portal_external_overlays_qa);
         //app_internet_volvoid_volvoid_portal_frontend_base
-        map.put("app_internet_volvoid_volvoid_portal_frontend_base",app_internet_volvoid_volvoid_portal_frontend_base);
+        map.put("app_internet_volvoid_volvoid_portal_frontend_base", app_internet_volvoid_volvoid_portal_frontend_base);
         //app_internet_volvoid_volvoid_portal_frontend_components
-        map.put("app_internet_volvoid_volvoid_portal_frontend_components",app_internet_volvoid_volvoid_portal_frontend_components);
+        map.put("app_internet_volvoid_volvoid_portal_frontend_components", app_internet_volvoid_volvoid_portal_frontend_components);
         //app_internet_volvoid_volvoid_portal_frontend_overlays_qa
-        map.put("app_internet_volvoid_volvoid_portal_frontend_overlays_qa",app_internet_volvoid_volvoid_portal_frontend_overlays_qa);
+        map.put("app_internet_volvoid_volvoid_portal_frontend_overlays_qa", app_internet_volvoid_volvoid_portal_frontend_overlays_qa);
         //app_partner_user_tsp_user_proxy_base
-        map.put("app_partner_user_tsp_user_proxy_base",app_partner_user_tsp_user_proxy_base);
+        map.put("app_partner_user_tsp_user_proxy_base", app_partner_user_tsp_user_proxy_base);
         //app_partner_user_tsp_user_proxy_overlays_qa
-        map.put("app_partner_user_tsp_user_proxy_overlays_qa",app_partner_user_tsp_user_proxy_overlays_qa);
+        map.put("app_partner_user_tsp_user_proxy_overlays_qa", app_partner_user_tsp_user_proxy_overlays_qa);
 
 
         map.forEach((key, value) -> {
             System.out.println("-----------------------" + key + "-----------------------");
-            System.out.println("-----------------------" + key + "-----------------------");
-            if (key.contains("base")) {
-                try {
-                    diffBase(value[0], value[1]);
-                } catch (IOException e) {
+            try {
+                diff(value[0], value[1]);
+            } catch (IOException e) {
+                if (e instanceof NoSuchFileException) {
+                    System.out.println("?????????????????? no such file ????????????????????");
+                    System.out.println(e.getMessage());
+                    System.out.println("?????????????????? no such file ????????????????????");
+                } else {
                     throw new RuntimeException(e);
                 }
-            } else if (key.contains("overlays")) {
-                try {
-                    diffOverlays(value[0], value[1]);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            } else {
-                System.out.println("error");
             }
         });
     }
