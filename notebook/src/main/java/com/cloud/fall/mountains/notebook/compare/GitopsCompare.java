@@ -155,8 +155,9 @@ public class GitopsCompare {
     };
     public static Path[] app_internet_volvoid_account_api_overlays_qa = {
             Path.of("/Users/xzhu54/work/global/lab/dragonite-gitops/app/internet/volvoid/account-api/overlays/cn.c3.qa"),
-//            Path.of("/Users/xzhu54/work/global/lab/identity-access-management-gitops/app/internet/volvoid/account-api/overlays/qa.volvoc3.cn")
-            Path.of("/Users/xzhu54/work/global/lab/identity-access-management-gitops/app/internet/volvoid/account-api/overlays/eu.qa.volvoc3.com")
+            Path.of("/Users/xzhu54/work/global/lab/identity-access-management-gitops/app/internet/volvoid/account-api/overlays/qa.volvoc3.cn")
+            // eu qa compare cn qa
+//            Path.of("/Users/xzhu54/work/global/lab/identity-access-management-gitops/app/internet/volvoid/account-api/overlays/eu.qa.volvoc3.com")
     };
 
     /**

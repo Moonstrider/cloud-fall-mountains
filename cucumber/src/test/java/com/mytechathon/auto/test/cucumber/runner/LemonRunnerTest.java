@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = {"src/test/resources/lemon.feature",
-        "src/test/resources/test.feature"},
+        "src/test/resources/test-given-when-then.feature"},
         glue = "com.mytechathon.auto.test.cucumber.steps",
         monochrome = true
 )

@@ -24,8 +24,7 @@ public class LemonStep {
     @Given("打开百度搜索")
     public void open() throws InterruptedException {
         driver.get("https://www.baidu.com");
-        Thread.sleep(1000);
-
+//        Thread.sleep(1000);
     }
 
     @When("输入 {string}")
