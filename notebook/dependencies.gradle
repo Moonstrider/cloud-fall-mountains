@@ -11,6 +11,8 @@ dependencies {
 
     implementation 'org.gitlab4j:gitlab4j-api:6.0.0-rc.5'
 
+    implementation 'commons-io:commons-io:2.16.1'
+
 
     implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.3.0'
 
