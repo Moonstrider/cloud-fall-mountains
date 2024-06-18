@@ -24,6 +24,7 @@ public class LemonStep {
     @Given("打开百度搜索")
     public void open() throws InterruptedException {
         driver.get("https://www.baidu.com");
+//        driver.get("https://volvoid.cn.volvocars.com/VolvoLogin/login?resumePath=2TkMveP6TV&client_id=t5zg8ue_11");
 //        Thread.sleep(1000);
     }
 
@@ -32,13 +33,25 @@ public class LemonStep {
         WebElement element = driver.findElement(By.name("wd"));
         element.sendKeys(string);
         element.submit();
+
+//        WebElement username = driver.findElement(By.id("loginField"));
+//        username.sendKeys("+8616621036574");
+//        username.submit();
+
+//        WebElement password = driver.findElement(By.id("pwdField"));
+//        password.sendKeys("123QWEasd_++");
+//        password.submit();
+
     }
 
     @Then("显示 {string}")
     public void show(String string) {
+//        string = "很抱歉";
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(
                 ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//a[text()='" + string + "']")));
+//                        By.className("//[test()='"+string+"']")
+                        By.xpath("//a[text()='" + string + "']")
+                ));
     }
 
     @After()

@@ -13,6 +13,8 @@ dependencies {
 
     implementation 'commons-io:commons-io:2.16.1'
 
+    implementation 'com.flipkart.zjsonpatch:zjsonpatch:0.4.16'
+
 
     implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.3.0'
 
