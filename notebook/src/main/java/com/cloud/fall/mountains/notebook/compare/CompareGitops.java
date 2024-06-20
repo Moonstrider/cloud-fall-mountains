@@ -1,11 +1,10 @@
 package com.cloud.fall.mountains.notebook.compare;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.flipkart.zjsonpatch.JsonDiff;
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -16,20 +15,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+// java -cp .:commons-lang3-3.14.0.jar:jackson-dataformat-yaml-2.15.4.jar:jackson-annotations-2.15.4.jar:json-20240303.jar:jackson-core-2.15.4.jar:zjsonpatch-0.4.16.jar:jackson-databind-2.15.4.jar:snakeyaml-2.2.jar:commons-collections4-4.4.jar -Dbase_dir=/Users/xzhu54/work/global/lab/ CompareGitops.java
 public class CompareGitops {
 
     // this base_dir will be a hard coded path on jenkins server
-    public static final String base_dir = "/Users/xzhu54/work/global/lab/";
-    public static final String global_gitops = "identity-access-management-gitops";
-    public static final String dragon_gitops = "dragonite-gitops";
+    public static String base_dir = "";
+    public static final String eu_gitops = "identity-access-management-gitops";
+    public static final String cn_gitops = "dragonite-gitops";
     public static final String app = "/app";
 
-    public static final List<String> globalAppList = new ArrayList<>(30);
-    public static final List<String> dragonAppList = new ArrayList<>(30);
+    public static final List<String> euAppList = new ArrayList<>(30);
+    public static final List<String> cnAppList = new ArrayList<>(30);
     public static final List<String> sameAppList = new ArrayList<>(30);
-    public static final List<String> globalAllFiles = new ArrayList<>();
-    public static final List<String> dragonAllFiles = new ArrayList<>();
+    public static final List<String> euAllFiles = new ArrayList<>();
+    public static final List<String> cnAllFiles = new ArrayList<>();
     public static final List<String> euQaFileList = new ArrayList<>();
     public static final List<String> cnQaFileList = new ArrayList<>();
     public static final List<String> euProdFileList = new ArrayList<>();
@@ -40,35 +43,46 @@ public class CompareGitops {
     public static final List<String> cnComponentFileList = new ArrayList<>();
     public static final List<String> euUnknownFileList = new ArrayList<>();
     public static final List<String> cnUnknownFileList = new ArrayList<>();
-    public static final String separateLine = "-------------------------------------------";
+    public static final String separateLine = "--------------------";
 
 
     public static void main(String[] args) throws Exception {
 
+        String baseDir = System.getProperty("base_dir");
+        System.out.println("Value of baseDir: " + baseDir);
+
+        if(StringUtils.isBlank(baseDir)){
+            base_dir = "asd";
+        }else{
+            base_dir = baseDir;
+        }
+
         // todo read base_dir from jenkins server or hardcode it
-        String globalAppDir = base_dir + global_gitops + app;
-        String dragonAppDir = base_dir + dragon_gitops + app;
+        String euAppDir = base_dir + eu_gitops + app;
+        String cnAppDir = base_dir + cn_gitops + app;
 
         // app level diff
-        List<String> allGlobalDirs = convertFileListToStringList(getSubDirs(new File(globalAppDir)));
-        List<String> allDragonDirs = convertFileListToStringList(getSubDirs(new File(dragonAppDir)));
-        compareAppDirLevel(allGlobalDirs, allDragonDirs);
+        List<String> allEuDirs = convertFileListToStringList(
+            getSubDirs(new File(euAppDir)));
+        List<String> allCnDirs = convertFileListToStringList(
+            getSubDirs(new File(cnAppDir)));
+        compareAppDirLevel(allEuDirs, allCnDirs);
 
         // each app's file diff
-        prepareFilesForBothSides(globalAppDir, dragonAppDir);
+        prepareFilesOfBothSides(euAppDir, cnAppDir);
         compareAppFileLevel();
 
         // file content diff will be checked in each app's file diff
         // when there is a same file, will check content diff
 
-        System.out.println("...");
-
+        System.out.println("Finish");
     }
 
 
     public static List<File> getSubDirs(File file) {
 
-        List<File> subDirs = Arrays.asList(Objects.requireNonNull(file.listFiles(File::isDirectory)));
+        List<File> subDirs = Arrays.asList(
+            Objects.requireNonNull(file.listFiles(File::isDirectory)));
         subDirs = new ArrayList<>(subDirs);
 
         List<File> deepSubDirs = new ArrayList<>();
@@ -87,171 +101,78 @@ public class CompareGitops {
         return result;
     }
 
-    public static void compareAppDirLevel(List<String> allGlobalDirs, List<String> allDragonDirs) {
-        System.out.println(separateLine);
-        System.out.println("Compare app level");
-        for (String dir : allGlobalDirs) {
+    public static void compareAppDirLevel(List<String> allEuDirs, List<String> allCnDirs) {
+        System.out.println(separateLine + "Compare app level" + separateLine);
+        for (String dir : allEuDirs) {
             if (dir.contains("base")) {
-                String[] splitFirst = dir.split(global_gitops);
+                String[] splitFirst = dir.split(eu_gitops);
                 String[] appName = splitFirst[1].split("/base");
-                globalAppList.add(appName[0]);
+                euAppList.add(appName[0]);
             }
         }
-        for (String dir : allDragonDirs) {
+        for (String dir : allCnDirs) {
             if (dir.contains("base")) {
-                String[] splitFirst = dir.split(dragon_gitops);
+                String[] splitFirst = dir.split(cn_gitops);
                 String[] appName = splitFirst[1].split("/base");
-                dragonAppList.add(appName[0]);
+                cnAppList.add(appName[0]);
             }
         }
 
-        for (String g : globalAppList) {
-            if (dragonAppList.contains(g)) {
-                String[] split = g.split("/app");
+        for (String euApp : euAppList) {
+            if (cnAppList.contains(euApp)) {
+                String[] split = euApp.split("/app");
                 sameAppList.add(split[1]);
 //                System.out.println("both have " + g);
             } else {
-                System.out.println("Exists in EU but not in CN:" + g);
+                System.out.println("Exists in EU but not in CN:" + euApp);
             }
         }
-        for (String d : dragonAppList) {
-            if (!globalAppList.contains(d)) {
-                System.out.println("Exists in CN but not in EU:" + d);
+        for (String cnApp : cnAppList) {
+            if (!euAppList.contains(cnApp)) {
+                System.out.println("Exists in CN but not in EU:" + cnApp);
             }
         }
     }
 
-
-    public static void compareAppFileLevel() throws Exception {
-        System.out.println(separateLine);
-        System.out.println("Compare app files");
-
-//        for (String app : sameAppList) {
-//            System.out.println("compare qa files for " + app);
-//            compareAppFileOfBothSide(app, euQaFileList, cnQaFileList);
-//        }
-        System.out.println("compare base files");
-        compareAppFileOfBothSide(euBaseFileList, cnBaseFileList);
-        System.out.println("compare qa files");
-        compareAppFileOfBothSide(replaceFolder(euQaFileList, "eu.qa.volvoc3.com", "cn.c3.qa"), cnQaFileList);
-        System.out.println("compare prod files");
-        compareAppFileOfBothSide(replaceFolder(euProdFileList, "eu.prod.volvoc3.com", "cn.c3.prod"), cnProdFileList);
-        System.out.println("compare component files");
-        compareAppFileOfBothSide(euComponentFileList, cnComponentFileList);
-//        System.out.println("compare unknown files");
-//        compareAppFileOfBothSide(euUnknownFileList, cnUnknownFileList);
-
-    }
-
-    public static List<String> replaceFolder(List<String> list, String from, String to) {
-        List<String> newList = new ArrayList<>();
-        for (String s : list) {
-            String n = s.replace(from, to);
-            newList.add(n);
+    public static void prepareFilesOfBothSides(String euAppDir, String cnAppDir)
+        throws IOException {
+        for (String app : sameAppList) {
+            String eu = euAppDir + app;
+            String cn = cnAppDir + app;
+            Path euAppPath = Paths.get(eu);
+            listAllFiles(euAppPath, euAllFiles);
+            Path cnAppPath = Paths.get(cn);
+            listAllFiles(cnAppPath, cnAllFiles);
         }
-        return newList;
-    }
 
-    public static void compareAppFileOfBothSide(List<String> global, List<String> dragon) throws Exception {
-        // g is a file path of global gitops
-        for (String g : global) {
-            if (!dragon.contains(g)) {
-                if (g.contains("cn.c3.qa")) {
-                    g = g.replace("cn.c3.qa", "eu.qa.volvoc3.com");
-                }
-                if (g.contains("cn.c3.prod")) {
-                    g = g.replace("cn.c3.prod", "eu.prod.volvoc3.com");
-                }
-                // doing replace only to print
-                System.out.println("Exists in EU but not in CN:" + g);
+        for (String euFile : euAllFiles) {
+            if (euFile.contains("eu.qa.volvoc3.com")) {
+                euQaFileList.add(euFile);
+            } else if (euFile.contains("eu.prod.volvoc3.com")) {
+                euProdFileList.add(euFile);
+            } else if (euFile.contains("base")) {
+                euBaseFileList.add(euFile);
+            } else if (euFile.contains("components")) {
+                euComponentFileList.add(euFile);
             } else {
-                // these yaml has duplicate keys
-//                if (g.contains("prometheus-patch.yaml")
-//                        || g.contains("service-entry-external.yaml")
-//                        || g.contains("service-internal-communication.yaml")
-//                        || g.contains("service-http-patch.yaml")
-//                        || g.contains("permissive-dr.yaml")
-//                        || g.contains("apollo-gw.yaml")
-//                        || g.contains("service-entry-internal.yaml")
-//                ) {
-//                    continue;
-//                }
-                String dd = "";
-                for (String d : dragon) {
-                    // find the same yaml file in dragonite-gitops
-                    if (d.equals(g)) {
-                        dd = d;
-                    }
-                }
-                // doing replace only to print
-                if (g.contains("cn.c3.qa")) {
-                    g = g.replace("cn.c3.qa", "eu.qa.volvoc3.com");
-                }
-                if (g.contains("cn.c3.prod")) {
-                    g = g.replace("cn.c3.prod", "eu.prod.volvoc3.com");
-                }
-                // these yaml has duplicate keys
-//                if (g.contains("ping-datasync/overlays/eu.qa.volvoc3.com/patch.yaml")
-//                        || g.contains("user-message-dispatcher/overlays/eu.qa.volvoc3.com/patch.yaml")
-//                        || g.contains("volvoid-portal-external/overlays/eu.qa.volvoc3.com/qa_patch.yaml")
-//                        || g.contains("account-api/overlays/eu.qa.volvoc3.com/qa_patch.yaml")
-//                        || g.contains("user-message-dispatcher/overlays/eu.prod.volvoc3.com/patch.yaml")
-//                        || g.contains("volvoid-portal-external/overlays/eu.prod.volvoc3.com/prod_patch.yaml")
-//                        || g.contains("account-api/overlays/eu.prod.volvoc3.com/prod_patch.yaml")
-//                ) {
-//                    continue;
-//                }
-                String s1 = base_dir + global_gitops + g;
-                String s2 = base_dir + dragon_gitops + dd;
-                compareYamlContent(s2, s1);
+                euUnknownFileList.add(euFile);
             }
         }
-        for (String d : dragon) {
-            if (!global.contains(d)) {
-                System.out.println("Exists in CN but not in EU:" + d);
+
+        for (String cnFile : cnAllFiles) {
+            if (cnFile.contains("cn.c3.qa")) {
+                cnQaFileList.add(cnFile);
+            } else if (cnFile.contains("cn.c3.prod")) {
+                cnProdFileList.add(cnFile);
+            } else if (cnFile.contains("base")) {
+                cnBaseFileList.add(cnFile);
+            } else if (cnFile.contains("components")) {
+                cnComponentFileList.add(cnFile);
+            } else {
+                cnUnknownFileList.add(cnFile);
             }
         }
     }
-
-    public static void prepareFilesForBothSides(String globalAppDir, String dragonAppDir) throws IOException {
-        for (String e : sameAppList) {
-            String g = globalAppDir + e;
-            String d = dragonAppDir + e;
-            Path gAppPath = Paths.get(g);
-            listAllFiles(gAppPath, globalAllFiles);
-            Path dAppPath = Paths.get(d);
-            listAllFiles(dAppPath, dragonAllFiles);
-        }
-
-        for (String gFile : globalAllFiles) {
-            if (gFile.contains("eu.qa.volvoc3.com")) {
-                euQaFileList.add(gFile);
-            } else if (gFile.contains("eu.prod.volvoc3.com")) {
-                euProdFileList.add(gFile);
-            } else if (gFile.contains("base")) {
-                euBaseFileList.add(gFile);
-            } else if (gFile.contains("components")) {
-                euComponentFileList.add(gFile);
-            } else {
-                euUnknownFileList.add(gFile);
-            }
-        }
-
-        for (String dFile : dragonAllFiles) {
-            if (dFile.contains("cn.c3.qa")) {
-                cnQaFileList.add(dFile);
-            } else if (dFile.contains("cn.c3.prod")) {
-                cnProdFileList.add(dFile);
-            } else if (dFile.contains("base")) {
-                cnBaseFileList.add(dFile);
-            } else if (dFile.contains("components")) {
-                cnComponentFileList.add(dFile);
-            } else {
-                cnUnknownFileList.add(dFile);
-            }
-        }
-    }
-
 
     public static void listAllFiles(Path currentPath, List<String> allFiles) throws IOException {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(currentPath)) {
@@ -275,95 +196,167 @@ public class CompareGitops {
         }
     }
 
-    public static void compareYamlContent(String eu, String cn) throws Exception {
+    public static void compareAppFileLevel() throws Exception {
+        System.out.println(separateLine + "Compare app files level" + separateLine);
 
-        System.out.println("checking yaml diff");
-        System.out.println(eu);
-        System.out.println(cn);
-        String euDiff = yamlDiff(eu, cn);
-        if (StringUtils.isNoneBlank(euDiff)) {
-            System.out.println("diff from EU to CN:" + euDiff);
-        }
-        String cnDiff = yamlDiff(cn, eu);
-        if (StringUtils.isNotBlank(cnDiff)) {
-            System.out.println("diff from CN to EU:" + cnDiff);
-        }
-        System.out.println("checking complete");
+        System.out.println(separateLine + "compare base files" + separateLine);
+        compareAppFileOfBothSide(euBaseFileList, cnBaseFileList);
+
+        System.out.println(separateLine + "compare qa files" + separateLine);
+        compareAppFileOfBothSide(replaceFolder(euQaFileList, "eu.qa.volvoc3.com", "cn.c3.qa"),
+            cnQaFileList);
+
+        System.out.println(separateLine + "compare prod files" + separateLine);
+        compareAppFileOfBothSide(replaceFolder(euProdFileList, "eu.prod.volvoc3.com", "cn.c3.prod"),
+            cnProdFileList);
+
+        System.out.println(separateLine + "compare component files" + separateLine);
+        compareAppFileOfBothSide(euComponentFileList, cnComponentFileList);
+
+//        System.out.println("compare unknown files");
+//        compareAppFileOfBothSide(euUnknownFileList, cnUnknownFileList);
     }
 
-    public static String yamlDiff(String path1, String path2) throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-        JsonNode file1 = objectMapper.readTree(new File(path1));
-        JsonNode file2 = objectMapper.readTree(new File(path2));
-        JsonNode patch = JsonDiff.asJson(file1, file2);
+    public static List<String> replaceFolder(List<String> list, String from, String to) {
+        List<String> newList = new ArrayList<>();
+        for (String s : list) {
+            String n = s.replace(from, to);
+            newList.add(n);
+        }
+        return newList;
+    }
+
+    public static void compareAppFileOfBothSide(List<String> euList, List<String> cnList)
+        throws Exception {
+        ObjectMapper prettyJsonMapper = new ObjectMapper();
+        ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
+        // eu is a file path of eu gitops
+        for (String eu : euList) {
+            if (!cnList.contains(eu)) {
+                if (eu.contains("cn.c3.qa")) {
+                    eu = eu.replace("cn.c3.qa", "eu.qa.volvoc3.com");
+                }
+                if (eu.contains("cn.c3.prod")) {
+                    eu = eu.replace("cn.c3.prod", "eu.prod.volvoc3.com");
+                }
+                // doing replace only to print
+                System.out.println("Exists in EU but not in CN:" + eu);
+            } else {
+                String cn = "";
+                for (String c : cnList) {
+                    // find the same yaml file in cn gitops
+                    if (c.equals(eu)) {
+                        cn = c;
+                    }
+                }
+                // doing replace only to print
+                if (eu.contains("cn.c3.qa")) {
+                    eu = eu.replace("cn.c3.qa", "eu.qa.volvoc3.com");
+                }
+                if (eu.contains("cn.c3.prod")) {
+                    eu = eu.replace("cn.c3.prod", "eu.prod.volvoc3.com");
+                }
+
+                String euFilePath = base_dir + eu_gitops + eu;
+                String cnFilePath = base_dir + cn_gitops + cn;
+
+                compareYamlContent(euFilePath, cnFilePath, prettyJsonMapper, yamlMapper);
+            }
+        }
+        for (String d : cnList) {
+            if (!euList.contains(d)) {
+                System.out.println("Exists in CN but not in EU:" + d);
+            }
+        }
+    }
+
+    public static void compareYamlContent(String eu, String cn,
+        ObjectMapper prettyJsonMapper, ObjectMapper yamlMapper)
+        throws Exception {
+
+        // compare eu to cn diff
+        String euDiffCn = yamlDiff(eu, cn, yamlMapper);
+        String cnDiffEu = yamlDiff(cn, eu, yamlMapper);
+
+        if (StringUtils.isNotBlank(euDiffCn)) {
+            System.out.println("checking yaml diff");
+            System.out.println(eu);
+
+            printPrettyJson(euDiffCn, cnDiffEu, prettyJsonMapper);
+
+            System.out.println("checking complete");
+        }
+    }
+
+    public static String yamlDiff(String file1, String file2, ObjectMapper yamlMapper)
+        throws Exception {
+//        ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
+        JsonNode jsonNode1 = yamlMapper.readTree(new File(file1));
+        JsonNode jsonNode2 = yamlMapper.readTree(new File(file2));
+        JsonNode patch = JsonDiff.asJson(jsonNode1, jsonNode2);
         return patch.isEmpty() ? "" : patch.toString();
     }
 
+    public static void printPrettyJson(String euDiffCn, String cnDiffEu, ObjectMapper mapper)
+        throws JsonProcessingException {
+        JSONArray euJsonArr = new JSONArray(euDiffCn);
+        for (int i = 0; i < euJsonArr.length(); i++) {
+            JSONObject jsonObj = euJsonArr.getJSONObject(i);
+            Object jsonObject = mapper.readValue(jsonObj.toString(), Object.class);
+            String prettyJson = mapper.writerWithDefaultPrettyPrinter()
+                .writeValueAsString(jsonObject);
 
-//        dirAppLevelCompare(globalAppDir, dragonAppDir);
-//        for (String e : oldSameAppList) {
-//            String g = globalAppDir + e;
-//            String d = dragonAppDir + e;
-//            Path gAppPath = Paths.get(g);
-//            listAllFiles(gAppPath, globalAllFiles);
-//            Path dAppPath = Paths.get(d);
-//            listAllFiles(dAppPath, dragonAllFiles);
-//        }
+            // euDiffCN has "op":"remove", should print cnDiffEu's "op":"add"
+            // because in this case, "remove" means eu has it but cn doesn't
+            // and "op":"remove" it will not print the value
+            // in cnDiffEu's "op":"add" which means cn doesn't have, will print what it doesn't have
+            // when euDiffCn catches op remove, jump out the current loop and continue next one
+            if (prettyJson.contains("\"op\" : \"remove\"")) {
+                continue;
+            }
+            prettyJson = prettyJson.replace("\"op\"", "\"type\"");
+            prettyJson = prettyJson.replace("\"replace\"", "\"diff\"");
+            prettyJson = prettyJson.replace("\"add\"", "\"missing\"");
+//            prettyJson = prettyJson.replace("\"remove\"", "\"new\"");
+            prettyJson = prettyJson.replace("\"move\"", "\"different location\"");
+            System.out.println(prettyJson);
+        }
 
+        JSONArray cnJsonArr = new JSONArray(cnDiffEu);
+        for (int i = 0; i < cnJsonArr.length(); i++) {
+            JSONObject jsonObj = cnJsonArr.getJSONObject(i);
+            Object jsonObject = mapper.readValue(jsonObj.toString(), Object.class);
+            String prettyJson = mapper.writerWithDefaultPrettyPrinter()
+                .writeValueAsString(jsonObject);
 
-//    public static void dirAppLevelCompare(String globalAppPath, String dragonAppPath) {
-//        File globalFile = new File(globalAppPath);
-//        File dragonFile = new File(dragonAppPath);
-//        String[] globalDirs = globalFile.list((current, name) -> new File(current, name).isDirectory());
-//        String[] dragonDirs = dragonFile.list((current, name) -> new File(current, name).isDirectory());
-//        System.out.println("global: app level " + Arrays.toString(globalDirs));
-//        System.out.println("快龙   ：app level " + Arrays.toString(dragonDirs));
-//
-//        Map<String, String[]> globalMap = new HashMap<>();
-//        Map<String, String[]> dragonMap = new HashMap<>();
-//
-//        assert globalDirs != null;
-//        assert dragonDirs != null;
-//        for (String globalDir : globalDirs) {
-//            globalFile = new File(globalAppPath + "/" + globalDir);
-//            String[] subDirArr = globalFile.list(
-//                    (current, name) -> new File(current, name).isDirectory()
-//            );
-//            globalMap.put(globalDir, subDirArr);
-//        }
-//        for (String dragonDir : dragonDirs) {
-//            dragonFile = new File(dragonAppPath + "/" + dragonDir);
-//            String[] subDirArr = dragonFile.list(
-//                    (current, name) -> new File(current, name).isDirectory()
-//            );
-//            dragonMap.put(dragonDir, subDirArr);
-//        }
-//
-//        globalMap.forEach((k, globalArr) -> {
-//            if (dragonMap.containsKey(k)) {
-//                String[] dragonArr = dragonMap.get(k);
-//                System.out.println("global [" + app + "/" + k + "] has:" + Arrays.toString(globalArr));
-//                System.out.println("快龙  ：[" + app + "/" + k + "] has:" + Arrays.toString(dragonArr));
-//
-//                getSameApp(k, globalArr, dragonArr);
-//
-//            } else {
-//                System.out.println("Warning!!! global has [" + k + "] but dragon doesn't");
-//            }
-//        });
-//    }
+            // euDiffCN has "op":"remove", should print cnDiffEu's "op":"add"
+            // because in this case, "remove" means eu has it but cn doesn't
+            // and "op":"remove" it will not print the value
+            // in cnDiffEu's "op":"add" which means cn doesn't have, will print what it doesn't have
+            // when cnDiffEu catches add missing, print it as eu's new
+            if (prettyJson.contains("\"op\" : \"add\"")) {
+                prettyJson = prettyJson.replace("\"op\"", "\"type\"");
+                prettyJson = prettyJson.replace("\"add\"", "\"new\"");
+                System.out.println(prettyJson);
+            }
+        }
 
 
-//    public static void getSameApp(String appPath, String[] globalApps, String[] dragonApps) {
-//
-//        List<String> globalAppList = List.of(globalApps);
-//        List<String> dragonAppList = List.of(dragonApps);
-//        globalAppList.forEach(app -> {
-//            if (dragonAppList.contains(app)) {
-//                String sameApp = "/" + appPath + "/" + app;
-////                System.out.println("!!!!!!!!" + sameApp);
-//                oldSameAppList.add(sameApp);
-//            }
-//        });
-//    }
+    }
 }
+
+// these yaml have duplicate keys
+// prometheus-patch.yaml
+// service-entry-external.yaml
+// service-internal-communication.yaml
+// service-http-patch.yaml
+// permissive-dr.yaml
+// apollo-gw.yaml
+// service-entry-internal.yaml
+// ping-datasync/overlays/eu.qa.volvoc3.com/patch.yaml
+// user-message-dispatcher/overlays/eu.qa.volvoc3.com/patch.yaml
+// volvoid-portal-external/overlays/eu.qa.volvoc3.com/qa_patch.yaml
+// account-api/overlays/eu.qa.volvoc3.com/qa_patch.yaml
+// user-message-dispatcher/overlays/eu.prod.volvoc3.com/patch.yaml
+// volvoid-portal-external/overlays/eu.prod.volvoc3.com/prod_patch.yaml
+// account-api/overlays/eu.prod.volvoc3.com/prod_patch.yaml
