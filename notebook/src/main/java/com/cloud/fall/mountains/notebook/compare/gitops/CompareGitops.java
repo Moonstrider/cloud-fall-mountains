@@ -1,4 +1,4 @@
-package com.cloud.fall.mountains.notebook.compare;
+package com.cloud.fall.mountains.notebook.compare.gitops;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -51,9 +51,9 @@ public class CompareGitops {
         String baseDir = System.getProperty("base_dir");
         System.out.println("Value of baseDir: " + baseDir);
 
-        if(StringUtils.isBlank(baseDir)){
+        if (StringUtils.isBlank(baseDir)) {
             base_dir = "asd";
-        }else{
+        } else {
             base_dir = baseDir;
         }
 
