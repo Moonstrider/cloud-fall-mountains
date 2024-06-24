@@ -52,7 +52,7 @@ public class CompareGitops {
         System.out.println("Value of baseDir: " + baseDir);
 
         if (StringUtils.isBlank(baseDir)) {
-            base_dir = "asd";
+            base_dir = "/Users/xzhu54/work/global/lab/";
         } else {
             base_dir = baseDir;
         }
