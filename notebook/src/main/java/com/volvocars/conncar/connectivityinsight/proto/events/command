@@ -1,0 +1,8 @@
+cd到.proto文件所在目录
+
+protoc --java_out=./ ./*.proto
+
+
+这个user_account.proto中指定了package
+所以生成的UserAccount中就带了package路径
+需要新建这些package

@@ -9,7 +9,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-cassandra-reactive'
     implementation 'org.springframework.kafka:spring-kafka:3.1.4'
 
-    implementation 'org.gitlab4j:gitlab4j-api:6.0.0-rc.5'
+    implementation 'com.google.protobuf:protobuf-java:4.27.2'
 
     implementation 'commons-io:commons-io:2.16.1'
 

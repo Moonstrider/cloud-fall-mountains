@@ -1,0 +1,47 @@
+//syntax = "proto3";
+//
+//package messages;
+//
+//option java_package = "com.volvocars.conncar.connectivityinsight.proto.events";
+//option java_outer_classname = "UserAccount";
+//
+//message UserAccountUpdated {
+//
+//  enum EventType {
+//    UNKNOWN = 0;
+//    USER_CONFIRMED_ACCOUNT = 1;
+//    USER_DELETED_ACCOUNT = 2;
+//    USER_DATA_UPDATED = 3;
+//    USER_ACCOUNT_DELETED_BY_SYSTEM = 4;
+//    USER_REQUESTED_USERNAME_CHANGE = 5;
+//    USER_CONFIRMED_USERNAME_CHANGE = 6;
+//    USER_REQUESTED_PASS_CHANGE = 7;
+//    USER_SET_PASS_RESET = 8;
+//    USER_SET_NEW_PASS_WHEN_LOGGED_IN = 9;
+//    UNCONFIRMED_USER_DETAILS_QUERIES = 10;
+//    USER_DETAILS_QUERIES_BY_ID = 11;
+//    USER_DETAILS_QUERIED_BY_USERNAME_BRAND = 12;
+//    USER_CREATED_ACCOUNT = 13;
+//  }
+//
+//  enum Brand {
+//    VOLVO = 0;
+//    POLESTAR = 1;
+//  }
+//
+//  enum UsernameType {
+//    PHONE = 0;
+//    EMAIL = 1;
+//  }
+//
+//  int64 timestamp = 1;
+//  EventType eventType = 2;
+//  string id = 3;
+//  optional string market = 4;
+//  optional Brand brand = 5;
+//  optional string type = 6;
+//  optional string channel = 7;
+//  optional string language = 8;
+//  optional UsernameType usernameType = 9;
+//}
+//
