@@ -25,7 +25,8 @@ public class ProtoBufBase64Decode {
 
     public static void main(String[] args) throws InvalidProtocolBufferException {
         // Base64-encoded string
-        String base64String = "CMur3OuGMhACGiQzZTgwNTMwMS03NGE2LTQwOTItYjY2NC04N2E0OWQwZTE1NjkiAkNOKAAyCEhFQURMRVNTOgpqNTl3Zms1XzIxQgJ6aEgA";
+//        String base64String = "CMur3OuGMhACGiQzZTgwNTMwMS03NGE2LTQwOTItYjY2NC04N2E0OWQwZTE1NjkiAkNOKAAyCEhFQURMRVNTOgpqNTl3Zms1XzIxQgJ6aEgA";
+        String base64String = "COD7zauJMhADGiRiMzZlNDIwOS0zZGM1LTRkM2QtOTljMC1kZjkxYjAyMzcxOWQiAkNOKAAyBlBPUlRBTDoHTVlWT0xWT0ICemhIAA==";
         byte[] bytes = Base64.getDecoder().decode(base64String);
         UserAccountUpdated userAccountUpdated = UserAccountUpdated.parseFrom(bytes);
         System.out.println(userAccountUpdated);
