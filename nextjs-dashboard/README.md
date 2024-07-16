@@ -12,4 +12,7 @@ npx create-next-app@latest nextjs-dashboard --example "https://github.com/vercel
 pnpm i
 
 pnpm dev
+
+create a vercel postgres, copy the .env.local conntect info into .env
+pnpm i @vercel/postgres
 ```
