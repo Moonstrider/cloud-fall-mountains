@@ -15,4 +15,6 @@ pnpm dev
 
 create a vercel postgres, copy the .env.local conntect info into .env
 pnpm i @vercel/postgres
+
+pnpm i use-debounce
 ```
