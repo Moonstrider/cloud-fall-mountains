@@ -17,4 +17,12 @@ create a vercel postgres, copy the .env.local conntect info into .env
 pnpm i @vercel/postgres
 
 pnpm i use-debounce
+
+check code issues
+pnpm lint
+
+pnpm i next-auth@beta
+
+openssl rand -base64 32
+add generated secret to .env
 ```
