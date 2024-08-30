@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Gitops difference</h1>
+
+<table>
+  <tr>
+    <th>Yaml File Name</th>
+    <th>Yaml Key</th>
+    <th>EU value</th>
+    <th>CN value</th>
+  </tr>
+  <tr>
+    <td rowspan="2">app/internal/pd-user-admin-tool-web/base/internal-access.yaml</td>
+    <td>/spec/http/0/match/0/headers/X-Auth-Request-Groups/regex</td>
+    <td>.*e3f0b84c-16ac-4d23-b970-7a86d68cc702.*|.*28ce6d60-3800-47ae-bcd9-d4d510c333ec.*</td>
+    <td>1228ce6d60-3800-47ae-bcd9-d4d510c333ecda1228ce6d60-3800-47ae-bcd9-d4d510c333ecda</td>
+  </tr>
+  <tr>
+    <td>/spec/http/1/match/0/headers/X-Auth-Request-Groups/regex</td>
+    <td>.*e3f0b84c-16ac-4d23-b970-7a86d68cc702.*|.*28ce6d60-3800-47ae-bcd9-d4d510c333ec.*</td>
+    <td>bcd9-d4d510c333ecda</td>
+  </tr>
+  <tr>
+    <td rowspan="1">app/internet/infra--olympus/olympus-apollo/base/kustomization.yaml</td>
+    <td>/resources/9</td>
+    <td></td>
+    <td>secretprovider.yaml</td>
+  </tr>
+  <tr>
+    <td rowspan="1">app/internet/infra--olympus/olympus-apollo/base/permissive-dr.yaml</td>
+    <td>/spec/trafficPolicy/portLevelSettings/4</td>
+    <td>{
+      "port" : {
+      "number" : 8989
+      },
+      "tls" : {
+      "mode" : "DISABLE"
+      }
+      }</td>
+    <td></td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="">
+<head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta charset="utf-8" content="">
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body table {
+      border: 1px solid black;
+    }
+
+    th {
+      border: 1px solid black;
+      text-align: left;
+      height: 50px;
+    }
+
+    td {
+      border: 3px solid black;
+      text-align: left;
+      /*word-break: break-all;*/
+      word-wrap: break-word;
+      width: 100px;
+      height: 100px;
+      /*line-height: center;*/
+    }
+  </style>
+  <script type="text/javascript">
+    function data() {
+      var str = "[" +
+          "{'ename':'tom','salary':'3500','age':'25'}," +
+          "{'ename':'jphn','salary':'harbor.infrastructure volvoc3.com/connectedcar/vcc/corporate/user/mup','age':'25'}," +
+          "{'ename':'mary','salary':'3600','age':'25'}" +
+          "]";
+      var entireArray = eval('(' + str + ')');
+
+      for (var e in entireArray) {
+        var tbody = document.getElementById('tbody');
+        var tr = document.createElement('tr');
+        var tdename = document.createElement('td')
+        var tdsalary = document.createElement('td')
+        var tdage = document.createElement('td')
+
+        // set td value
+        tdename.innerHTML = entireArray[e].ename;
+        tdsalary.innerHTML = entireArray[e].salary;
+        tdage.innerHTML = entireArray[e].age;
+
+        tr.appendChild(tdename);
+        tr.appendChild(tdsalary);
+        tr.appendChild(tdage);
+
+        tbody.appendChild(tr);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', data);
+  </script>
+
+</head>
+
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>ename</th>
+    <th>salary</th>
+    <th>age</th>
+  </tr>
+  </thead>
+  <tbody id='tbody'>
+
+  </tbody>
+</table>
+
+
+</body>
+</html>

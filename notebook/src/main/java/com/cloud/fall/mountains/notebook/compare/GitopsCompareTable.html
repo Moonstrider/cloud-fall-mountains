@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh">
+<head>
+  <title>Gitops Compare</title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta charset="utf-8" content="">
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    body table {
+      margin: 0 auto;
+      border: 1px solid black;
+    }
+
+    th {
+      border: 1px solid black;
+      text-align: center;
+      width: 500px;
+      height: 30px;
+    }
+
+    td {
+      border: 1px solid black;
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript">
+    function data() {
+      let str = ""
+
+      let fileName;
+      var jsonObject = eval('(' + str + ')');
+      for (var n in jsonObject) {
+        // console.log(n)
+        // console.log(jsonObject[n])
+        for (var file in jsonObject[n]) {
+          // console.log(jsonObject[n])
+          // console.log(file)// json key
+          // console.log(jsonObject[n][file])// json value
+          let isArray = Array.isArray(jsonObject[n][file]);
+          if (!isArray) {
+            // this is a very complex logic
+            // if it's not array, it's the fileName
+            // then save the fileName in a let
+            fileName = jsonObject[n][file];
+            continue;
+          }
+          var tbody = document.getElementById('tbody');
+          var trFile = document.createElement('tr');
+          var tdFile = document.createElement('td');
+          // console.log(jsonObject[n][file].length)
+          // this is interesting, why need to +1
+          tdFile.rowSpan = jsonObject[n][file].length + 1;
+          tdFile.innerHTML = fileName;
+          trFile.appendChild(tdFile);
+          tbody.appendChild(trFile);
+
+          for (var i in jsonObject[n][file]) {
+            // console.log(jsonObject[n][file][i])
+            // console.log(jsonObject[n][file][i].yamlKey)
+            // console.log(jsonObject[n][file][i].euValue)
+            // console.log(jsonObject[n][file][i].cnValue)
+            var tr = document.createElement('tr');
+            var yamlKey = document.createElement('td')
+            var euValue = document.createElement('td')
+            var cnValue = document.createElement('td')
+            yamlKey.innerHTML = jsonObject[n][file][i].yamlKey;
+            euValue.innerHTML = jsonObject[n][file][i].euValue;
+            cnValue.innerHTML = jsonObject[n][file][i].cnValue;
+            tr.appendChild(yamlKey);
+            tr.appendChild(euValue);
+            tr.appendChild(cnValue);
+            tbody.appendChild(tr);
+          }
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', data);
+  </script>
+
+</head>
+
+<body>
+<br/>
+<h1>Gitops difference</h1>
+<br/>
+<table>
+  <thead>
+  <tr>
+    <th>Yaml File Name</th>
+    <th>Yaml Key</th>
+    <th>EU Value</th>
+    <th>CN Value</th>
+  </tr>
+  </thead>
+  <tbody id='tbody'>
+
+  </tbody>
+</table>
+
+</body>
+</html>
