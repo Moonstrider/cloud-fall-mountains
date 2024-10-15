@@ -65,6 +65,10 @@ h1, h2 {
   background-color: #f8dae9;
 }
 
+.btn-arr {
+  display: flex;
+}
+
 .card {
   background-color: white;
   border-radius: 4px;
@@ -73,6 +77,10 @@ h1, h2 {
   width: 20rem;
   /*margin-top: 5px;*/
   /*margin-bottom: 5px;*/
+}
+
+.bigger {
+  font-size: 2rem;
 }
 
 .actions {
