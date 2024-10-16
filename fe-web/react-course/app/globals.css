@@ -68,7 +68,6 @@ h1, h2 {
 .btn-arr {
   margin-top: 1rem;
   display: flex;
-  flex-direction: row-reverse;
   justify-content: space-evenly;
 }
 
@@ -130,4 +129,24 @@ h1, h2 {
 
 .input__box {
   font-size: 1.5rem;
+}
+
+.add__title input {
+  border: 0;
+   /*background: rgba(253, 244, 255, 0.582);*/
+  width: 100%;
+  height: 50px;
+  margin-bottom: 5px;
+  font-size: 23px;
+}
+
+.add__button {
+  background: #800040;
+  color: #fff;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 23px;
 }

@@ -1,0 +1,28 @@
+{
+  "englishCard": [
+    {
+      "id": "2",
+      "en": "Big Banana",
+      "cn": "香蕉",
+      "example": "I like banana"
+    },
+    {
+      "id": "321289",
+      "en": "1",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "423838",
+      "en": "3",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "145259",
+      "en": "4",
+      "cn": "",
+      "example": ""
+    }
+  ]
+}

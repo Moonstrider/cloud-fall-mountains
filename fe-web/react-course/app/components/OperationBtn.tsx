@@ -1,11 +1,13 @@
-import {Card} from "@/app/components/Types";
+import {EnglishCard} from "@/app/components/Types";
 
 interface OperationBtnProps {
-  card: Card;
+  card: EnglishCard;
+  saveHandler: (e: React.MouseEvent<HTMLSpanElement>, id: string) => void;
   deleteHandler: (e: React.MouseEvent<HTMLSpanElement>) => void;
-  saveHandler: (e: React.MouseEvent<HTMLSpanElement>, id: number) => void;
 }
-export default function OperationBtn({card, deleteHandler, saveHandler}: OperationBtnProps) {
+
+export default function OperationBtn({card, saveHandler, deleteHandler}: OperationBtnProps) {
+  // console.log("operate card", JSON.stringify(card))
   return (
       <div className="btn-arr">
         <div className="actions">

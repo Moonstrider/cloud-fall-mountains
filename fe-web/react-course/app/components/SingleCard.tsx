@@ -1,24 +1,23 @@
 'use client';
 
 import React, {useState} from "react";
-import Backdrop from "@/app/components/Backdrop";
-import Modal from "@/app/components/Modal";
-import {Card} from "@/app/components/Types";
+import Backdrop from "@/app/components/modal/Backdrop";
+import Modal from "@/app/components/modal/Modal";
+import {EnglishCard} from "@/app/components/Types";
 import OperationBtn from "@/app/components/OperationBtn";
+import {useCard} from "@/app/CardContext";
 
 interface CardProps {
-  card: Card;
-  cardList: Card[];
-  setCardList: React.Dispatch<React.SetStateAction<Card[]>>
-  deleteMyself: (deleteCard: string) => void;
+  card: EnglishCard;
 }
 
-export default function SingleCard(
-    {card, cardList, setCardList, deleteMyself}: CardProps) {
+export default function SingleCard({card}: CardProps) {
 
+  const {updateCard, deleteCard} = useCard();
   const [showModel, setShowModel] = useState<boolean>(false);
-  const [editTitle, setEditTitle] = useState<string>(card.title);
+  const [currentEn, setCurrentEn] = useState<string>(card.en);
   const [showButton, setShowButton] = useState(false);
+
   // 当鼠标移入时显示按钮
   const handleMouseEnter = () => {
     setShowButton(true);
@@ -28,21 +27,20 @@ export default function SingleCard(
     setShowButton(false);
   };
 
-  function saveHandler(e: React.FormEvent, id: number) {
-    e.preventDefault();
-    // cardContent.title = editTitle;
-
-    console.log("cardList----" + JSON.stringify(cardList));
-    setCardList(cardList.map((card: Card) => (
-        card.id === id ? {...card, title: editTitle} : card
-    )));
-
-    console.log("cardList1234" + JSON.stringify(cardList));
-  }
-
   function editHandler(e) {
-    setEditTitle(e.target.value)
+    setCurrentEn(e.target.value)
   }
+
+  // update the current card and the card in the cardList
+  // current card is always updated when the input value changes
+  // so in this function, we need to update the card in the cardList
+  // update card in json server first then use the response to update the card in the cardList
+  function saveHandler(e: React.FormEvent) {
+    e.preventDefault();
+    card.en = currentEn;
+    updateCard(card);
+  }
+
 
   function deleteHandler() {
     setShowModel(true);
@@ -61,20 +59,20 @@ export default function SingleCard(
           <input
               className="input__box"
               type="text"
-              value={editTitle}
+              value={currentEn}
               onChange={(e) => editHandler(e)}
           />
         </form>
 
         {/*{showButton && (*/}
-            <OperationBtn card={card} deleteHandler={deleteHandler} saveHandler={saveHandler}/>
+        <OperationBtn card={card} saveHandler={saveHandler}
+                      deleteHandler={() => deleteCard(card.id, closeModal)}/>
         {/*)}*/}
 
         {showModel &&
-            <Modal title={card.title} deleteCard={deleteMyself} myOnCancel={closeModal}/>}
+            <Modal id={card.id} closeModal={closeModal}/>}
         {showModel &&
-            <Backdrop myOnCancel={closeModal}/>}
-
+            <Backdrop closeModal={closeModal}/>}
 
       </div>
   );
