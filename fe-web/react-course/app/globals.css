@@ -66,17 +66,24 @@ h1, h2 {
 }
 
 .btn-arr {
+  margin-top: 1rem;
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
 }
 
-.card {
+.single-card {
   background-color: white;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   width: 20rem;
-  /*margin-top: 5px;*/
+  margin: 10px 10px;
   /*margin-bottom: 5px;*/
+}
+
+.single-card:hover{
+  background-color: #f8dae9;
 }
 
 .bigger {
@@ -108,4 +115,19 @@ h1, h2 {
   height: 100vh;
   top: 0;
   left: 0;
+}
+
+.operationBtn {
+  font: inherit;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #800040;
+  color: white;
+  border: 1px solid #800040;
+  margin: 0 0.5rem
+}
+
+.input__box {
+  font-size: 1.5rem;
 }

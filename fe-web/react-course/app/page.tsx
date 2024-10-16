@@ -1,18 +1,25 @@
 'use client';
 
-import Card from "@/app/components/Card";
+import SingleCard from "@/app/components/SingleCard";
 import {useEffect, useState} from "react";
+import {Card} from "@/app/components/Types";
 
 export default function Home() {
 
-  const [cardList, setCardList] = useState<string[]>([]);
+  const [cardList, setCardList] = useState<Card[]>([]);
 
   useEffect(() => {
     // fetch card list
-    setCardList(['1', '2', '3', '4', '5'])
+    setCardList([
+      {id: 1, title: '111'},
+      {id: 2, title: '222'},
+      {id: 3, title: '333'}
+    ]);
   }, [])
 
-  console.log("cardList:" + cardList)
+  function printCardList() {
+    console.log("cardList:" + JSON.stringify(cardList))
+  }
 
   function deleteCard(deleteCard: string) {
     console.log('delete card:', deleteCard);
@@ -27,13 +34,16 @@ export default function Home() {
         {
           cardList.map(
               (card, index) => (
-                  <Card key={index} title={card} deleteMyself={deleteCard}/>
+                  <SingleCard
+                      key={index}
+                      card={card}
+                      cardList={cardList}
+                      setCardList={setCardList}
+                      deleteMyself={deleteCard}
+                  />
               )
           )
         }
-        {/*<Card title="Card 1"/>*/}
-        {/*<Card title="Card 1"/>*/}
-        {/*<Card title="Card 1"/>*/}
       </div>
   );
 }
