@@ -1,7 +1,7 @@
 'use client';
 
 import {createContext, ReactNode, useContext, useEffect, useState} from "react";
-import {EnglishCard, NewEnglishCard} from "@/app/components/Types";
+import {EnglishCard} from "@/app/components/Types";
 
 type CardProviderProps = {
   children: ReactNode
@@ -42,7 +42,7 @@ export function CardProvider({children}: CardProviderProps) {
   }
 
 
-  const addCard = async (card: NewEnglishCard) => {
+  const addCard = async (card: EnglishCard) => {
     // const addCardToJsonServer = async (card: NewEnglishCard) => {
     // const res =
     await fetch(url, {
@@ -66,19 +66,15 @@ export function CardProvider({children}: CardProviderProps) {
     // setCardList([newCard, ...cardList]);
   }
 
-  const deleteCard = async (id: string, closeModal) => {
+  const deleteCard = async (id: string) => {
     await fetch(`${url}/${id}`, {
       method: "DELETE",
     })
-    .then((response) => response.json())
-    .then((deletedCard) => {
-      /*
-      the array filter function will return
-      a new array which contains elements that matches the condition
-      */
-      setCardList(cardList.filter((card) => card.id !== deletedCard.id));
-    });
-    closeModal();
+    /*
+    the array filter function will return
+    a new array which contains elements that matches the condition
+    */
+    setCardList(cardList.filter((card) => card.id !== id));
   }
 
   const updateCard = async (updatedCard: EnglishCard) => {

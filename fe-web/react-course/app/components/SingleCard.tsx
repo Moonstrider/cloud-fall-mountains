@@ -13,7 +13,7 @@ interface CardProps {
 
 export default function SingleCard({card}: CardProps) {
 
-  const {updateCard, deleteCard} = useCard();
+  const {updateCard} = useCard();
   const [showModel, setShowModel] = useState<boolean>(false);
   const [currentEn, setCurrentEn] = useState<string>(card.en);
   const [showButton, setShowButton] = useState(false);
@@ -41,11 +41,6 @@ export default function SingleCard({card}: CardProps) {
     updateCard(card);
   }
 
-
-  function deleteHandler() {
-    setShowModel(true);
-  }
-
   function closeModal() {
     setShowModel(false);
   }
@@ -64,10 +59,10 @@ export default function SingleCard({card}: CardProps) {
           />
         </form>
 
-        {/*{showButton && (*/}
-        <OperationBtn card={card} saveHandler={saveHandler}
-                      deleteHandler={() => deleteCard(card.id, closeModal)}/>
-        {/*)}*/}
+        {showButton && (
+            <OperationBtn card={card} saveHandler={saveHandler}
+                          closeModal={closeModal}/>
+        )}
 
         {showModel &&
             <Modal id={card.id} closeModal={closeModal}/>}

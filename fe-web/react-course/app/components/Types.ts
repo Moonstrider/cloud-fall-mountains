@@ -4,9 +4,3 @@ export interface EnglishCard {
   cn: string;
   example: string;
 }
-
-export interface NewEnglishCard {
-  en: string;
-  cn: string;
-  example: string;
-}

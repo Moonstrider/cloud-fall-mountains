@@ -11,16 +11,18 @@ export default function CardPage() {
   return (
       <div>
         <AddCard/>
-        {
-          cardList.map(
-              (card, index) => (
-                  <SingleCard
-                      key={index}
-                      card={card}
-                  />
-              )
-          )
-        }
+        <div className="h-56 grid grid-cols-5 content-start">
+          {
+            cardList.map(
+                (card) => (
+                    <SingleCard
+                        key={card.id}
+                        card={card}
+                    />
+                )
+            )
+          }
+        </div>
       </div>
   )
 
