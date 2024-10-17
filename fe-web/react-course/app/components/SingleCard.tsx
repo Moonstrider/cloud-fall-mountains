@@ -4,8 +4,9 @@ import React, {useState} from "react";
 import Backdrop from "@/app/components/modal/Backdrop";
 import Modal from "@/app/components/modal/Modal";
 import {EnglishCard} from "@/app/components/Types";
-import OperationBtn from "@/app/components/OperationBtn";
+import Detail from "@/app/components/Detail";
 import {useCard} from "@/app/CardContext";
+import DetailPopup from "@/app/components/DetailPopup";
 
 interface CardProps {
   card: EnglishCard;
@@ -16,15 +17,15 @@ export default function SingleCard({card}: CardProps) {
   const {updateCard} = useCard();
   const [showModel, setShowModel] = useState<boolean>(false);
   const [currentEn, setCurrentEn] = useState<string>(card.en);
-  const [showButton, setShowButton] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
 
   // 当鼠标移入时显示按钮
   const handleMouseEnter = () => {
-    setShowButton(true);
+    setShowDetail(true);
   };
   // 当鼠标移出时隐藏按钮
   const handleMouseLeave = () => {
-    setShowButton(false);
+    setShowDetail(false);
   };
 
   function editHandler(e) {
@@ -59,9 +60,13 @@ export default function SingleCard({card}: CardProps) {
           />
         </form>
 
-        {showButton && (
-            <OperationBtn card={card} saveHandler={saveHandler}
-                          closeModal={closeModal}/>
+        {showDetail && (
+
+            <Detail
+                card={card}
+                saveHandler={saveHandler}
+                closeModal={closeModal}
+            />
         )}
 
         {showModel &&

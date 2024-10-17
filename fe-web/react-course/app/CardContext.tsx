@@ -43,8 +43,6 @@ export function CardProvider({children}: CardProviderProps) {
 
 
   const addCard = async (card: EnglishCard) => {
-    // const addCardToJsonServer = async (card: NewEnglishCard) => {
-    // const res =
     await fetch(url, {
       method: "POST",
       headers: {
@@ -54,16 +52,9 @@ export function CardProvider({children}: CardProviderProps) {
     })
     .then((response) => response.json())
     .then((newCard) => {
+      // very tricky order
       setCardList([newCard, ...cardList]);
     })
-    // return await res.json();
-    // };
-
-    // const newCard = await addCardToJsonServer(card);
-    // console.log("cardList:"+JSON.stringify(cardList))
-    // console.log("newCard:"+JSON.stringify(newCard))
-    // very tricky order
-    // setCardList([newCard, ...cardList]);
   }
 
   const deleteCard = async (id: string) => {

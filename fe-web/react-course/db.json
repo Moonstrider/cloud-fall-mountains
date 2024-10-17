@@ -1,3 +1,445 @@
 {
-  "englishCard": []
+  "englishCard": [
+    {
+      "id": "738163",
+      "en": "instructor",
+      "pronounce": "",
+      "cn": "导师，教练，讲师",
+      "example": ""
+    },
+    {
+      "id": "579490",
+      "en": "large scale",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "202505",
+      "en": "theory",
+      "pronounce": "",
+      "cn": "理论",
+      "example": ""
+    },
+    {
+      "id": "739912",
+      "en": "scene",
+      "pronounce": "",
+      "cn": "场景，镜头",
+      "example": ""
+    },
+    {
+      "id": "905699",
+      "en": "curriculumn",
+      "pronounce": "[kә'rikjulәm]",
+      "cn": "课程",
+      "example": ""
+    },
+    {
+      "id": "495920",
+      "en": "argument",
+      "pronounce": "",
+      "cn": "论点，争论",
+      "example": ""
+    },
+    {
+      "id": "920888",
+      "en": "interactive",
+      "pronounce": "",
+      "cn": "交互的",
+      "example": ""
+    },
+    {
+      "id": "937910",
+      "en": "the built-in server-side rendering",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "351422",
+      "en": "skeleton",
+      "pronounce": "",
+      "cn": "骨架",
+      "example": ""
+    },
+    {
+      "id": "521585",
+      "en": "meetup",
+      "pronounce": "",
+      "cn": "聚会",
+      "example": ""
+    },
+    {
+      "id": "498783",
+      "en": "flickering",
+      "pronounce": "",
+      "cn": "闪烁",
+      "example": ""
+    },
+    {
+      "id": "785383",
+      "en": "fraction",
+      "pronounce": "",
+      "cn": "小部分",
+      "example": ""
+    },
+    {
+      "id": "939631",
+      "en": "whilst the request is on its way",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "702037",
+      "en": "outgoing request",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "411601",
+      "en": "only reached by logging in",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "487763",
+      "en": "search engine crawler",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "488145",
+      "en": "subsequent navigation actions",
+      "pronounce": "",
+      "cn": "随后的导航操作",
+      "example": ""
+    },
+    {
+      "id": "259403",
+      "en": "blended together",
+      "pronounce": "",
+      "cn": "混合在一起",
+      "example": ""
+    },
+    {
+      "id": "681242",
+      "en": "illusion",
+      "pronounce": "",
+      "cn": "幻觉",
+      "example": ""
+    },
+    {
+      "id": "930603",
+      "en": "replicate",
+      "pronounce": "",
+      "cn": "复制",
+      "example": ""
+    },
+    {
+      "id": "161920",
+      "en": "concept",
+      "pronounce": "",
+      "cn": "概念",
+      "example": ""
+    },
+    {
+      "id": "421928",
+      "en": "file-based routing",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "574480",
+      "en": "server-side rendering",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "234081",
+      "en": "fullstack capabilities",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "990448",
+      "en": "de facto",
+      "pronounce": "",
+      "cn": "事实上",
+      "example": ""
+    },
+    {
+      "id": "532259",
+      "en": "slightly",
+      "pronounce": "",
+      "cn": "稍微",
+      "example": ""
+    },
+    {
+      "id": "524703",
+      "en": "prompt",
+      "pronounce": "",
+      "cn": "促使，提示词",
+      "example": ""
+    },
+    {
+      "id": "271574",
+      "en": "And hence for us",
+      "pronounce": "",
+      "cn": "因此对我们来说",
+      "example": ""
+    },
+    {
+      "id": "286335",
+      "en": "dive super deep into",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "836444",
+      "en": "nonetheless",
+      "pronounce": "",
+      "cn": "尽管如此",
+      "example": ""
+    },
+    {
+      "id": "990991",
+      "en": "get our hands dirty now",
+      "pronounce": "",
+      "cn": "现在就动手",
+      "example": ""
+    },
+    {
+      "id": "974653",
+      "en": "behave",
+      "pronounce": "",
+      "cn": "表现",
+      "example": ""
+    },
+    {
+      "id": "786301",
+      "en": "straight forward",
+      "pronounce": "",
+      "cn": "直截了当的",
+      "example": ""
+    },
+    {
+      "id": "692020",
+      "en": "essence",
+      "pronounce": "",
+      "cn": "本质，精髓，精油",
+      "example": ""
+    },
+    {
+      "id": "671376",
+      "en": "discord",
+      "pronounce": "",
+      "cn": "不和，不一致",
+      "example": ""
+    },
+    {
+      "id": "236972",
+      "en": "syntax",
+      "pronounce": "",
+      "cn": "句法",
+      "example": ""
+    },
+    {
+      "id": "771355",
+      "en": "client-side",
+      "pronounce": "",
+      "cn": "",
+      "example": "React is a client-side Java Script library"
+    },
+    {
+      "id": "737922",
+      "en": "spin",
+      "pronounce": "",
+      "cn": "快速旋转",
+      "example": "That refresh icon in the top left corner never spins"
+    },
+    {
+      "id": "197757",
+      "en": "latency",
+      "pronounce": "",
+      "cn": "延迟",
+      "example": ""
+    },
+    {
+      "id": "847292",
+      "en": "manipulate",
+      "pronounce": "",
+      "cn": "",
+      "example": "We can use js to manipulate the dom"
+    },
+    {
+      "id": "901825",
+      "en": "overlay",
+      "pronounce": "",
+      "cn": "覆盖",
+      "example": ""
+    },
+    {
+      "id": "533876",
+      "en": "backdrop",
+      "pronounce": "",
+      "cn": "背景",
+      "example": ""
+    },
+    {
+      "id": "212645",
+      "en": "imperative approach",
+      "pronounce": "",
+      "cn": "命令式方法",
+      "example": ""
+    },
+    {
+      "id": "768320",
+      "en": "declarative approach",
+      "pronounce": "",
+      "cn": "声明式方法",
+      "example": ""
+    },
+    {
+      "id": "594516",
+      "en": "describe action after action, step by step",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "871729",
+      "en": "nitty-gritty details",
+      "pronounce": "",
+      "cn": "细节",
+      "example": ""
+    },
+    {
+      "id": "800299",
+      "en": "reinvent the wheel",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "296003",
+      "en": "repetitive tasks",
+      "pronounce": "",
+      "cn": "",
+      "example": ""
+    },
+    {
+      "id": "799535",
+      "en": "high level syntax",
+      "pronounce": "",
+      "cn": "高级语法",
+      "example": ""
+    },
+    {
+      "id": "451055",
+      "en": "declarative way",
+      "pronounce": "",
+      "cn": "声明式",
+      "example": ""
+    },
+    {
+      "id": "894110",
+      "en": "widget",
+      "pronounce": "",
+      "cn": "小玩意儿，小装置",
+      "example": ""
+    },
+    {
+      "id": "303790",
+      "en": "lean",
+      "pronounce": "",
+      "cn": "v倚靠，adj精干的，n瘦肉",
+      "example": ""
+    },
+    {
+      "id": "660972",
+      "en": "embrace",
+      "pronounce": "",
+      "cn": "拥抱，欣然接受",
+      "example": ""
+    },
+    {
+      "id": "446358",
+      "en": "overkill",
+      "pronounce": "",
+      "cn": "过犹不及，杀尽杀绝",
+      "example": ""
+    },
+    {
+      "id": "291889",
+      "en": "extreme",
+      "pronounce": "",
+      "cn": "极端",
+      "example": ""
+    },
+    {
+      "id": "623634",
+      "en": "literal",
+      "pronounce": "",
+      "cn": "字面意义的",
+      "example": ""
+    },
+    {
+      "id": "586718",
+      "en": "be omitted",
+      "pronounce": "",
+      "cn": "被忽略",
+      "example": ""
+    },
+    {
+      "id": "129511",
+      "en": "omit it",
+      "pronounce": "",
+      "cn": "忽略它",
+      "example": ""
+    },
+    {
+      "id": "175588",
+      "en": "utilize",
+      "pronounce": "",
+      "cn": "利用",
+      "example": ""
+    },
+    {
+      "id": "695379",
+      "en": "curly braces",
+      "pronounce": "",
+      "cn": "大括号",
+      "example": "single curly braces, double curly braces"
+    },
+    {
+      "id": "275782",
+      "en": "parenthesis",
+      "pronounce": "",
+      "cn": "小括号，插入语",
+      "example": ""
+    },
+    {
+      "id": "930644",
+      "en": "bracket",
+      "pronounce": "",
+      "cn": "方括号",
+      "example": ""
+    },
+    {
+      "id": "910193",
+      "en": "crystal clear",
+      "pronounce": "",
+      "cn": "晶莹剔透的",
+      "example": ""
+    }
+  ]
 }

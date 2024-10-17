@@ -71,24 +71,6 @@ h1, h2 {
   justify-content: space-evenly;
 }
 
-.single-card {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  width: 20rem;
-  margin: 10px 10px;
-  /*margin-bottom: 5px;*/
-}
-
-.single-card:hover{
-  background-color: #f8dae9;
-}
-
-.bigger {
-  font-size: 2rem;
-}
-
 .actions {
   text-align: right;
 }
@@ -149,4 +131,36 @@ h1, h2 {
   cursor: pointer;
   text-decoration: none;
   font-size: 23px;
+}
+
+.detail__popup {
+  /*font-size: 30px;*/
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  transition: 0.2s linear all;
+}
+
+.detail__fonts {
+  font-size: 40px;
+}
+
+.single-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  width: 20rem;
+  margin: 10px 10px;
+  /*margin-bottom: 5px;*/
+}
+
+.single-card:hover{
+  /*opacity: 1;  !* Fully visible *!*/
+  /*transform: translateX(0) translateY(0);  !* Slide down smoothly *!*/
+  /*pointer-events: auto;*/
+  /*background-color: #f8dae9;*/
 }
