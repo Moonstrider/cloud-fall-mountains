@@ -4,4 +4,5 @@ export interface EnglishCard {
   pronounce: string;
   cn: string;
   example: string;
+  createTime: string;
 }

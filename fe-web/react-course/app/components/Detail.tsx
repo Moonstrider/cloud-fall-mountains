@@ -1,7 +1,7 @@
 import {EnglishCard} from "@/app/components/Types";
 import {useCard} from "@/app/CardContext";
 
-interface OperationBtnProps {
+interface DetailProps {
   card: EnglishCard;
   saveHandler: (e: React.MouseEvent<HTMLSpanElement>, id: string) => void;
   closeModal: () => void;
@@ -12,7 +12,7 @@ export default function Detail(
       card,
       saveHandler,
       closeModal
-    }: OperationBtnProps) {
+    }: DetailProps) {
 
   const {deleteCard} = useCard();
 
@@ -22,6 +22,7 @@ export default function Detail(
         <div className="detail__fonts">{card.cn}</div>
         <div className="detail__fonts">{card.pronounce}</div>
         <div className="detail__fonts">{card.example}</div>
+        <div className="detail__time">{card.createTime}</div>
         <div className="btn-arr">
           <div className="actions">
             <span className="operationBtn" onClick={(e) =>

@@ -36,10 +36,6 @@ body {
   background-color: #dfdfdf;
 }
 
-h1, h2 {
-  color: #333333;
-}
-
 .btn {
   font: inherit;
   padding: 0.5rem 1.5rem;
@@ -65,16 +61,6 @@ h1, h2 {
   background-color: #f8dae9;
 }
 
-.btn-arr {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.actions {
-  text-align: right;
-}
-
 .modal {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
@@ -96,6 +82,16 @@ h1, h2 {
   height: 100vh;
   top: 0;
   left: 0;
+}
+
+.btn-arr {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.actions {
+  text-align: right;
 }
 
 .operationBtn {
@@ -146,6 +142,10 @@ h1, h2 {
 
 .detail__fonts {
   font-size: 40px;
+}
+
+.detail__time {
+  font-size: 20px;
 }
 
 .single-card {

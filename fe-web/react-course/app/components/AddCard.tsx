@@ -13,7 +13,14 @@ export default function AddCard() {
   const submitAdd = (e) => {
     e.preventDefault()
     const id = Math.floor(100000 + Math.random() * 900000).toString()
-    addCard({id: id, en: en, pronounce: pronounce, cn: cn, example: example})
+    addCard({
+      id: id,
+      en: en,
+      pronounce: pronounce,
+      cn: cn,
+      example: example,
+      createTime: new Date().toLocaleString()
+    })
     .then(() => {
       setEn('')
       setCn('')
