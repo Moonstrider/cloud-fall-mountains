@@ -37,8 +37,8 @@ export function CardProvider({children}: CardProviderProps) {
   const fetchCard = async () => {
     const resFromJsonServer = await fetch(url);
     const cards = await resFromJsonServer.json();
-    // setCardList(cards.reverse());
-    setCardList(cards);
+    setCardList(cards.reverse());
+    // setCardList(cards);
   }
 
 
