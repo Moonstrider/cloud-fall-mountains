@@ -1,11 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route} from "react-router-dom";
+import Allmeetups from "./pages/Allmeetups";
 
 function App() {
   return (
-    <div className="App">
-     123
-    </div>
+      <div className="App">
+        <Route path='/'>
+          <Allmeetups/>
+        </Route>
+      </div>
   );
 }
 
