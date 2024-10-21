@@ -1,10 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
+```bash
+npm install -g json-server
+```
 
 First, run the development server:
 
 ```bash
+json-server --watch db.json --port 4001
 npm run dev
 # or
 yarn dev
