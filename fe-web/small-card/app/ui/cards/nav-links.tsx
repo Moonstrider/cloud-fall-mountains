@@ -3,7 +3,7 @@
 import {
   UserGroupIcon,
   HomeIcon,
-  DocumentDuplicateIcon,
+  DocumentDuplicateIcon, ArchiveBoxIcon,
 } from '@heroicons/react/24/outline';
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
@@ -25,6 +25,10 @@ const links = [
   { name: 'Chinese',
     href: '/cards/chinese',
     icon: UserGroupIcon
+  },
+  { name: 'God',
+    href: '/cards/god',
+    icon: ArchiveBoxIcon
   },
 ];
 

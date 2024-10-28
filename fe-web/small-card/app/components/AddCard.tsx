@@ -39,7 +39,7 @@ export default function AddCard() {
   };
 
   return (
-      <div>
+      <div className='sticky top-0'>
         <div className='add__title grid grid-cols-4 gap-4'>
           <input ref={inputRef} type='text' placeholder='english' value={en}
                  onChange={(e) => setEn(e.target.value)}

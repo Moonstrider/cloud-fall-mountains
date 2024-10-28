@@ -105,10 +105,6 @@ body {
   margin: 0 0.5rem
 }
 
-.input__box {
-  font-size: 1.5rem;
-}
-
 .add__title input {
   border: 0;
    /*background: rgba(253, 244, 255, 0.582);*/
@@ -153,9 +149,14 @@ body {
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
-  width: 20rem;
+  width: 17rem;
   margin: 10px 10px;
   /*margin-bottom: 5px;*/
+}
+
+.input__box {
+  width: 15rem;
+  font-size: 1.5rem;
 }
 
 .single-card:hover{

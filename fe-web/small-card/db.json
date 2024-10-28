@@ -519,6 +519,14 @@
       "cn": "相等的",
       "example": "is equivalent to",
       "createTime": "2024/10/21 14:12:30"
+    },
+    {
+      "id": "714862",
+      "en": "momentum",
+      "pronounce": "/moʊˈmentəm/",
+      "cn": "势头",
+      "example": "",
+      "createTime": "2024/10/28 11:52:16"
     }
   ]
 }
