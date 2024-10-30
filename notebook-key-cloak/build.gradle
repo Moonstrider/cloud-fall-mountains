@@ -20,10 +20,12 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.keycloak:keycloak-spring-boot-starter:25.0.3'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'com.auth0:java-jwt:4.4.0'
-	implementation 'com.auth0:jwks-rsa:0.22.1'
+
 }
 
 tasks.named('test') {

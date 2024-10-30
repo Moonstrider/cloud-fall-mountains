@@ -1,0 +1,6 @@
+/* card-container won't work, cannot have - in this kind of css file */
+/* cardContainer will work */
+.card {
+  padding: 1rem;
+  border: 1px solid #ccc;
+}

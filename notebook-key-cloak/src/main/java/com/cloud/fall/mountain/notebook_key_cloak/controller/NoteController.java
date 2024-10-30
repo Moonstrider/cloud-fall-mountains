@@ -19,4 +19,15 @@ public class NoteController {
         return "All notes";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "Logging in...";
+    }
+
+    @GetMapping("/old-url")
+    public String redirect() {
+        return "redirect:/new-url";
+    }
+
+
 }
