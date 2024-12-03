@@ -32,7 +32,7 @@ export function CardProvider({children}: CardProviderProps) {
 
   useEffect(() => {
     fetchCard();
-  })
+  },[])
 
   const fetchCard = async () => {
     const resFromJsonServer = await fetch(url);
