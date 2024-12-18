@@ -1,4 +1,5 @@
 {
+  "germanCard": [],
   "englishCard": [
     {
       "id": "738163",
@@ -483,7 +484,7 @@
     {
       "id": "275782",
       "en": "parenthesis",
-      "pronounce": "",
+      "pronounce": "/pəˈrenθəsɪs/",
       "cn": "小括号，插入语",
       "example": "",
       "createTime": "2024/10/17 15:01:00"
