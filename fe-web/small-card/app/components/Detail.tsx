@@ -1,8 +1,8 @@
-import {EnglishCard} from "@/app/components/Types";
+import {LanguageCard} from "@/app/components/Types";
 import {useCard} from "@/app/CardContext";
 
 interface DetailProps {
-  card: EnglishCard;
+  card: LanguageCard;
   saveHandler: (e: React.MouseEvent<HTMLSpanElement>, id: string) => void;
   closeModal: () => void;
 }
@@ -20,9 +20,10 @@ export default function Detail(
       <div className="detail__popup">
         <div className="detail__fonts">{card.en}</div>
         <div className="detail__fonts">{card.cn}</div>
+        <div className="detail__fonts">{card.de}</div>
         <div className="detail__fonts">{card.pronounce}</div>
         <div className="detail__fonts">{card.example}</div>
-        <div className="detail__time">{card.createTime}</div>
+        <div className="detail__time">Created on {card.createTime}</div>
         <div className="btn-arr">
           <div className="actions">
             <span className="operationBtn" onClick={(e) =>

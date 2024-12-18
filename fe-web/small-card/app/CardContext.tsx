@@ -1,18 +1,19 @@
 'use client';
 
 import {createContext, ReactNode, useContext, useEffect, useState} from "react";
-import {EnglishCard} from "@/app/components/Types";
+import {LanguageCard} from "@/app/components/Types";
 
 type CardProviderProps = {
   children: ReactNode
 }
 
 type CardContext = {
-  fetchCard: () => void
-  updateCard: (updatedCard: EnglishCard) => void
-  addCard: (card: EnglishCard) => Promise<void>
-  deleteCard: (id: string, closeModal) => Promise<void>
-  cardList: EnglishCard[]
+  englishCards: LanguageCard[]
+  germanCards: LanguageCard[]
+  fetchCard: () => Promise<void>
+  addCard: (path: string, card: LanguageCard) => Promise<void>
+  updateCard: (updatedCard: LanguageCard) => Promise<void>
+  deleteCard: (id: string) => Promise<void>
 }
 
 const CardContext = createContext({} as CardContext)
@@ -23,26 +24,41 @@ export function useCard() {
 
 export function CardProvider({children}: CardProviderProps) {
 
-  const [cardList, setCardList] = useState<EnglishCard[]>([])
+  const [englishCards, setEnglishCards] = useState<LanguageCard[]>([])
+  const [germanCards, setGermanCards] = useState<LanguageCard[]>([])
 
   const jsonServerUrl = 'http://localhost:4001'
-  const path = '/englishCard'
+  const germanEndpoint = '/germanCard'
+  const englishEndpoint = '/englishCard'
   // const { path } = useLocation()
-  const url = jsonServerUrl + path;
+  const enUrl = jsonServerUrl + englishEndpoint;
+  const deUrl = jsonServerUrl + germanEndpoint;
 
   useEffect(() => {
     fetchCard();
-  },[])
+  }, [])
 
   const fetchCard = async () => {
-    const resFromJsonServer = await fetch(url);
-    const cards = await resFromJsonServer.json();
-    setCardList(cards.reverse());
-    // setCardList(cards);
+    const enResFromJsonServer = await fetch(enUrl);
+    const enCards = await enResFromJsonServer.json();
+    setEnglishCards(enCards.reverse());
+
+    const deResFromJsonServer = await fetch(deUrl);
+    const deCards = await deResFromJsonServer.json();
+    setGermanCards(deCards.reverse())
   }
 
 
-  const addCard = async (card: EnglishCard) => {
+  const addCard = async (path: string, card: LanguageCard) => {
+    let url;
+    if (path === "englishCard") {
+      url = enUrl;
+    } else if (path === "germanCard") {
+      url = deUrl
+    } else {
+      throw Error("wrong path 1")
+    }
+
     await fetch(url, {
       method: "POST",
       headers: {
@@ -53,23 +69,29 @@ export function CardProvider({children}: CardProviderProps) {
     .then((response) => response.json())
     .then((newCard) => {
       // very tricky order
-      setCardList([newCard, ...cardList]);
+      if (path === "englishCard") {
+        setEnglishCards([newCard, ...englishCards]);
+      } else if (path === "germanCard") {
+        setGermanCards([newCard, ...germanCards]);
+      } else {
+        throw Error("wrong path 2")
+      }
     })
   }
 
   const deleteCard = async (id: string) => {
-    await fetch(`${url}/${id}`, {
+    await fetch(`${enUrl}/${id}`, {
       method: "DELETE",
     })
     /*
     the array filter function will return
     a new array which contains elements that matches the condition
     */
-    setCardList(cardList.filter((card) => card.id !== id));
+    setEnglishCards(englishCards.filter((card) => card.id !== id));
   }
 
-  const updateCard = async (updatedCard: EnglishCard) => {
-    fetch(`${url}/${updatedCard.id}`, {
+  const updateCard = async (updatedCard: LanguageCard) => {
+    fetch(`${enUrl}/${updatedCard.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +101,7 @@ export function CardProvider({children}: CardProviderProps) {
     .then((response) => response.json())
     .then((updatedCard) => {
       // Update the local state to reflect the changes
-      setCardList(
+      setEnglishCards(
           (cardList) =>
               cardList.map((card) =>
                   card.id === updatedCard.id ? {...card, en: updatedCard.en} : card
@@ -91,11 +113,12 @@ export function CardProvider({children}: CardProviderProps) {
   return (
       <CardContext.Provider
           value={{
+            englishCards: englishCards,
+            germanCards: germanCards,
             fetchCard: fetchCard,
-            updateCard: updateCard,
             addCard: addCard,
+            updateCard: updateCard,
             deleteCard: deleteCard,
-            cardList: cardList,
           }}
       >
         {children}

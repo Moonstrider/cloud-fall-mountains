@@ -3,13 +3,13 @@
 import React, {useState} from "react";
 import Backdrop from "@/app/components/modal/Backdrop";
 import Modal from "@/app/components/modal/Modal";
-import {EnglishCard} from "@/app/components/Types";
+import {LanguageCard} from "@/app/components/Types";
 import Detail from "@/app/components/Detail";
 import {useCard} from "@/app/CardContext";
 import DetailPopup from "@/app/components/DetailPopup";
 
 interface CardProps {
-  card: EnglishCard;
+  card: LanguageCard;
 }
 
 export default function SingleCard({card}: CardProps) {

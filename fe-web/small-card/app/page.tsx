@@ -1,13 +1,14 @@
 'use client';
 
-import {CardProvider} from "@/app/CardContext";
+import {CardProvider, useCard} from "@/app/CardContext";
 import CardPage from "@/app/components/CardPage";
 
 export default function Home() {
+  const {englishCards} = useCard();
   return (
       <div>
         <CardProvider>
-          <CardPage/>
+          <CardPage languageCards={englishCards}/>
         </CardProvider>
       </div>
   );

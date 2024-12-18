@@ -1,10 +1,14 @@
 import React, {useRef, useState} from 'react'
 import {useCard} from "@/app/CardContext";
+import {usePathname} from "next/navigation";
 
 export default function AddCard() {
 
+  const pathname = usePathname()
+  console.log("pathname:"+pathname)
   const {addCard} = useCard();
   const [en, setEn] = useState('')
+  const [de, setDe] = useState('')
   const [pronounce, setPronounce] = useState('')
   const [cn, setCn] = useState('')
   const [example, setExample] = useState('')
@@ -13,9 +17,10 @@ export default function AddCard() {
   const submitAdd = (e) => {
     e.preventDefault()
     const id = Math.floor(100000 + Math.random() * 900000).toString()
-    addCard({
+    addCard("/englishCard",{
       id: id,
       en: en,
+      de: de,
       pronounce: pronounce,
       cn: cn,
       example: example,
@@ -40,9 +45,13 @@ export default function AddCard() {
 
   return (
       <div className='sticky top-0'>
-        <div className='add__title grid grid-cols-4 gap-4'>
+        <div className='add__title grid grid-cols-5 gap-4'>
           <input ref={inputRef} type='text' placeholder='english' value={en}
                  onChange={(e) => setEn(e.target.value)}
+                 onKeyDown={handleKeyDown}
+          />
+          <input ref={inputRef} type='text' placeholder='deutsch' value={de}
+                 onChange={(e) => setDe(e.target.value)}
                  onKeyDown={handleKeyDown}
           />
           <input type='text' placeholder='cn' value={cn}
