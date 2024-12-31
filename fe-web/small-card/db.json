@@ -528,6 +528,78 @@
       "cn": "势头",
       "example": "",
       "createTime": "2024/10/28 11:52:16"
+    },
+    {
+      "id": "144029",
+      "en": "churn",
+      "pronounce": "/tʃɜːrn/",
+      "cn": "搅动",
+      "example": "",
+      "createTime": "2024/12/31 10:02:17"
+    },
+    {
+      "id": "975161",
+      "en": "tackle",
+      "pronounce": "/ˈtækl/",
+      "cn": "决解",
+      "example": "",
+      "createTime": "2024/12/31 10:03:01"
+    },
+    {
+      "id": "830266",
+      "en": "periodically",
+      "pronounce": "/ˌpiriˈɑdɪkəli/",
+      "cn": "定期地",
+      "example": "",
+      "createTime": "2024/12/31 10:03:33"
+    },
+    {
+      "id": "899284",
+      "en": "redundancy",
+      "pronounce": "/rɪˈdʌndənsi/",
+      "cn": "冗余",
+      "example": "",
+      "createTime": "2024/12/31 10:04:16"
+    },
+    {
+      "id": "860874",
+      "en": "failover",
+      "pronounce": "",
+      "cn": "故障转移，容错",
+      "example": "",
+      "createTime": "2024/12/31 10:04:48"
+    },
+    {
+      "id": "750356",
+      "en": "complement",
+      "pronounce": "/ˈkɑːmplɪmənt , ˈkɑːmplɪment/",
+      "cn": "补充，补足",
+      "example": "",
+      "createTime": "2024/12/31 13:07:12"
+    },
+    {
+      "id": "441978",
+      "en": "compliment",
+      "pronounce": "/ˈkɑːmplɪmənt , ˈkɑːmplɪment/",
+      "cn": "赞美，恭维",
+      "example": "",
+      "createTime": "2024/12/31 13:07:33"
+    },
+    {
+      "id": "412594",
+      "en": "resort",
+      "pronounce": "/rɪˈzɔːrt/",
+      "cn": "求助，度假胜地，应急措施",
+      "example": "",
+      "createTime": "2024/12/31 13:08:34"
+    },
+    {
+      "id": "489327",
+      "en": "mitigate",
+      "pronounce": "/ˈmɪtɪɡeɪt/",
+      "cn": "减轻，缓和",
+      "example": "",
+      "createTime": "2024/12/31 13:10:09"
     }
   ]
 }
