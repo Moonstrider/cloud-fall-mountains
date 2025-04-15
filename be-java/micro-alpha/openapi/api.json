@@ -23,7 +23,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "type": "string"
                 }
               }
             }
@@ -33,15 +33,6 @@
     }
   },
   "components": {
-    "schemas": {
-      "User": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        }
-      }
-    }
+
   }
 }
