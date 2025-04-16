@@ -6,18 +6,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class AlphaService {
 
-//    private final ApiControllerApi apiClient; // Generated interface
+    private final ApiControllerApi apiControllerApi;
 
-//    public AlphaService(ApiControllerApi apiClient) {
-//        this.apiClient = apiClient;
-//    }
+    public AlphaService(ApiControllerApi apiControllerApi) {
+        this.apiControllerApi = apiControllerApi;
+    }
 
     public String test() {
-        ApiControllerApi apiControllerApi = new ApiControllerApi();
         String test = apiControllerApi.test();
         System.out.println("test:" + test);
         return test;
-//        return apiClient.test();
     }
 
 }
