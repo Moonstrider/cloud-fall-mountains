@@ -1,8 +1,10 @@
 package com.cloud.fall.mountains.micro_alpha.service;
 
 import com.cloud.fall.mountains.micro_beta.api.ApiControllerApi;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class AlphaService {
 
@@ -13,9 +15,14 @@ public class AlphaService {
     }
 
     public String test() {
-        String test = apiControllerApi.test();
-        System.out.println("test:" + test);
-        return test;
+        try {
+            String test = apiControllerApi.test();
+            System.out.println("test:" + test);
+            return test;
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return "error";
+        }
     }
 
 }
