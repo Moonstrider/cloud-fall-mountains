@@ -624,6 +624,22 @@
       "cn": "公约",
       "example": "",
       "createTime": "2025/4/24 14:55:30"
+    },
+    {
+      "id": "675950",
+      "en": "demonstrate",
+      "pronounce": "/ˈdemənstreɪt/",
+      "cn": "证明,演示,示范,论证,表现,说明,证实,表达,表露,显露,集会示威",
+      "example": "",
+      "createTime": "2025/4/24 16:03:51"
+    },
+    {
+      "id": "555002",
+      "en": "scenario",
+      "pronounce": "/səˈnærioʊ/",
+      "cn": "方案,设想,脚本,场景",
+      "example": "",
+      "createTime": "2025/4/24 16:18:09"
     }
   ]
 }
