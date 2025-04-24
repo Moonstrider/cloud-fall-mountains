@@ -600,6 +600,30 @@
       "cn": "减轻，缓和",
       "example": "",
       "createTime": "2024/12/31 13:10:09"
+    },
+    {
+      "id": "140237",
+      "en": "interactivity",
+      "pronounce": "",
+      "cn": "交互",
+      "example": "",
+      "createTime": "2025/4/24 14:17:50"
+    },
+    {
+      "id": "366947",
+      "en": "composition",
+      "pronounce": "",
+      "cn": "作文;构成;成分;（绘画、摄影的）构图;(音乐、艺术、诗歌的)作品;创作",
+      "example": "",
+      "createTime": "2025/4/24 14:40:45"
+    },
+    {
+      "id": "930066",
+      "en": "convention",
+      "pronounce": "/kənˈvenʃn/",
+      "cn": "公约",
+      "example": "",
+      "createTime": "2025/4/24 14:55:30"
     }
   ]
 }
