@@ -640,6 +640,54 @@
       "cn": "方案,设想,脚本,场景",
       "example": "",
       "createTime": "2025/4/24 16:18:09"
+    },
+    {
+      "id": "253173",
+      "en": "concept",
+      "pronounce": "",
+      "cn": " 概念,观念,思想,发明,创造,(体现设计思想的)样品",
+      "example": "",
+      "createTime": "2025/4/25 14:52:32"
+    },
+    {
+      "id": "700989",
+      "en": "albums",
+      "pronounce": "/ˈælbəmz/",
+      "cn": "相册,专辑",
+      "example": "",
+      "createTime": "2025/4/25 14:55:51"
+    },
+    {
+      "id": "564411",
+      "en": "dysfunctional",
+      "pronounce": "/dɪsˈfʌŋkʃənl/",
+      "cn": "功能失调的",
+      "example": "",
+      "createTime": "2025/4/27 10:10:20"
+    },
+    {
+      "id": "326488",
+      "en": "contrast",
+      "pronounce": "",
+      "cn": "对比,对照",
+      "example": "in contrast 相反",
+      "createTime": "2025/4/27 15:38:31"
+    },
+    {
+      "id": "206767",
+      "en": "inutitive",
+      "pronounce": "/ɪnˈtuːɪtɪv/",
+      "cn": "直觉的,易懂的,使用简单的",
+      "example": "",
+      "createTime": "2025/4/27 17:19:36"
+    },
+    {
+      "id": "947427",
+      "en": "incentive",
+      "pronounce": "",
+      "cn": "激励",
+      "example": "",
+      "createTime": "2025/4/28 11:22:16"
     }
   ]
 }
