@@ -6,6 +6,9 @@ First, run the development server:
 
 ```bash
 npx create-next-app@latest
+npm install next-auth@beta
+npm install tailwindcss-animate
+npm install @tailwindcss/typography
 #
 npm run dev
 # or
