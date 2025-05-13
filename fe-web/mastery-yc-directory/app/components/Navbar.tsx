@@ -7,7 +7,10 @@ const Navbar = async () => {
 
   console.log('session:',session)
   return (
-      <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
+      <header className="px-5 py-3 bg-white shadow-sm
+      {/*font-work-sans*/}
+       text-xl
+      ">
         <nav className="flex justify-between items-center">
           <Link href="/">
             <Image src="/logo.png" alt="logo" width={144} height={30}/>

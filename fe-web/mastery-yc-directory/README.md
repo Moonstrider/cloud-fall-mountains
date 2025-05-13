@@ -9,6 +9,8 @@ npx create-next-app@latest
 npm install next-auth@beta
 npm install tailwindcss-animate
 npm install @tailwindcss/typography
+npm install tailwindcss @tailwindcss/postcss postcss
+npx shadcn@latest init
 #
 npm run dev
 # or

@@ -1,8 +1,13 @@
 export default function Home() {
   return (
       <>
-        {/*<h1 className="heading">shit</h1>*/}
-        <div className="bg-red-500 text-white p-4">Hello</div>
+        <section className="pink_container bg-pink-600 pattern">
+          <h1 className="heading">pitch your startup,
+            <br/> connect with Entrepreneurs</h1>
+          <p className="sub-heading !max-w-3xl">
+            Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions.
+          </p>
+        </section>
       </>
   );
 }
