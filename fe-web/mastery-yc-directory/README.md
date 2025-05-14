@@ -11,6 +11,7 @@ npm install tailwindcss-animate
 npm install @tailwindcss/typography
 npm install tailwindcss @tailwindcss/postcss postcss
 npx shadcn@latest init
+npx shadcn@latest add button
 #
 npm run dev
 # or
